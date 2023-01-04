@@ -9,20 +9,21 @@
           <div class="row">
             <div class="col-xl-4 col-sm-6 col-sm-12">
               <div class="card browser-widget">
-                <h5 class="mx-2 mt-1" style="font-size: 16px;">ATTENDING</h5>
+                <h5 class="mx-2 mt-1" style="font-size: 16px;">NEW CUSTOMERS</h5>
                 <div class="media card-body" style="padding: 0px;">
                   <div class="media-body align-self-center">
                     <div>
-                      <p style="font-size: 16px; font-weight: 1000;">Daily </p>
-                      <p style="font-size: 16px;"><span class="counter" style="font-weight: 800;">36</span></p>
+                      <p style="font-size: 16px; font-weight: 1000;">Daily </p> 
+                      <p *ngIf="userAttending.length === 0" style="font-size: 16px;"><span class="counter" style="font-weight: 800;">0</span></p>
+                      <p *ngIf="userAttending.length !== 0" style="font-size: 16px;"><span class="counter" style="font-weight: 800;">{{userAttending.length}}</span></p>
                     </div>
                     <div>
                       <p style="font-size: 16px;">Month </p>
-                      <p style="font-size: 16px;"><span class="counter">96</span></p>
+                      <p style="font-size: 16px;"><span class="counter">0</span></p>
                     </div>
                     <div>
                       <p style="font-size: 16px;">Week </p>
-                      <p style="font-size: 16px;"><span class="counter">46</span></p>
+                      <p style="font-size: 16px;"><span class="counter">0</span></p>
                     </div>
                   </div>
                 </div>
@@ -36,37 +37,16 @@
                   <div class="media-body align-self-center">
                     <div>
                       <p style="font-size: 16px; font-weight: 1000;">Daily </p>
-                      <p style="font-size: 16px;"><span class="counter" style="font-weight: 800;">36</span></p>
+                      <p *ngIf="userPassOnboarding.length === 0" style="font-size: 16px;"><span class="counter" style="font-weight: 800;">0</span></p>
+                      <p *ngIf="userPassOnboarding.length !== 0" style="font-size: 16px;"><span class="counter" style="font-weight: 800;">{{userPassOnboarding.length}}</span></p>
                     </div>
                     <div>
                       <p style="font-size: 16px;">Month </p>
-                      <p style="font-size: 16px;"><span class="counter">96</span></p>
+                      <p style="font-size: 16px;"><span class="counter">0</span></p>
                     </div>
                     <div>
                       <p style="font-size: 16px;">Week </p>
-                      <p style="font-size: 16px;"><span class="counter">46</span></p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-xl-4 col-sm-6 col-sm-12">
-              <div class="card browser-widget">
-                <h5 class="mx-2 mt-1" style="font-size: 16px;">FAILURE ONBOARDING</h5>
-                <div class="media card-body" style="padding: 0px;">
-                  <div class="media-body align-self-center">
-                    <div>
-                      <p style="font-size: 16px; font-weight: 1000;">Daily </p>
-                      <p style="font-size: 16px;"><span class="counter" style="font-weight: 800;">36</span></p>
-                    </div>
-                    <div>
-                      <p style="font-size: 16px;">Month </p>
-                      <p style="font-size: 16px;"><span class="counter">96</span></p>
-                    </div>
-                    <div>
-                      <p style="font-size: 16px;">Week </p>
-                      <p style="font-size: 16px;"><span class="counter">46</span></p>
+                      <p style="font-size: 16px;"><span class="counter">0</span></p>
                     </div>
                   </div>
                 </div>
@@ -77,16 +57,16 @@
       </div>
     </div>
     <div class="card-body" style="padding: 4px;">
-      <div class="row">
+      <!-- <div class="row"> -->
         <div class="u-steps row">
-          <div class="u-step col-sm-2" style="padding: 12px 2px;"><span class="u-step-number">1</span>
-            <div class="u-step-desc"><span class="u-step-title" style="font-size: 16px;">CHECK CUSTOMER PHONE</span>
+          <div class="u-step col-sm-3" style="padding: 12px 2px;"><span class="u-step-number">1</span>
+            <div class="u-step-desc"><span class="u-step-title" style="font-size: 16px;">CHECK CUST PHONE</span>
             </div>
             <div class="row">
               <div class="col-sm-12">
                 <div class="card">
                   <div class="table-responsive">
-                    <table class="table table-xs">
+                    <table class="table table-xs text-center">
                       <thead>
                         <tr>
                           <th scope="col" style="padding: 1px;"></th>
@@ -98,9 +78,12 @@
                       <tbody>
                         <tr>
                           <th scope="row" style="padding: 1px;">Daily</th>
-                          <td style="padding: 1px;">100</td>
-                          <td style="padding: 1px;">50</td>
-                          <td style="padding: 1px;">50</td>
+                          <td *ngIf="checkCustPhone.length === 0" style="padding: 1px;">0</td>
+                          <td *ngIf="checkCustPhone.length !== 0" style="padding: 1px;">{{checkCustPhone[0].detailCustomers.length}}</td>
+                          <td *ngIf="checkCustPhone.length === 0" style="padding: 1px;">0</td>
+                          <td *ngIf="checkCustPhone.length !== 0" style="padding: 1px;">{{checkCustPhone[0].daily.success}}</td>
+                          <td *ngIf="checkCustPhone.length === 0" style="padding: 1px;">0</td>
+                          <td *ngIf="checkCustPhone.length !== 0" style="padding: 1px;">{{checkCustPhone[0].daily.failure}}</td>
                         </tr>
                         <tr>
                           <th scope="row" style="padding: 1px;">Week</th>
@@ -121,14 +104,14 @@
               </div>
             </div>
           </div>
-          <div class="u-step col-sm-2" style="padding: 12px 2px;"><span class="u-step-number">2</span>
+          <div class="u-step col-sm-3" style="padding: 12px 2px;"><span class="u-step-number">2</span>
             <div class="u-step-desc"><span class="u-step-title" style="font-size: 16px;">SUBMIT EKYC</span>
             </div>
             <div class="row">
               <div class="col-sm-12">
                 <div class="card">
                   <div class="table-responsive">
-                    <table class="table table-xs">
+                    <table class="table table-xs text-center">
                       <thead>
                         <tr>
                           <th scope="col" style="padding: 1px;"></th>
@@ -140,9 +123,12 @@
                       <tbody>
                         <tr>
                           <th scope="row" style="padding: 1px;">Daily</th>
-                          <td style="padding: 1px;">100</td>
-                          <td style="padding: 1px;">50</td>
-                          <td style="padding: 1px;">50</td>
+                          <td *ngIf="submitEKYC.length === 0" style="padding: 1px;">0</td>
+                          <td *ngIf="submitEKYC.length !== 0" style="padding: 1px;">{{submitEKYC[0].detailCustomers.length}}</td>
+                          <td *ngIf="submitEKYC.length === 0" style="padding: 1px;">0</td>
+                          <td *ngIf="submitEKYC.length !== 0" style="padding: 1px;">{{submitEKYC[0].daily.success}}</td>
+                          <td *ngIf="submitEKYC.length === 0" style="padding: 1px;">0</td>
+                          <td *ngIf="submitEKYC.length !== 0" style="padding: 1px;">{{submitEKYC[0].daily.failure}}</td>
                         </tr>
                         <tr>
                           <th scope="row" style="padding: 1px;">Week</th>
@@ -163,14 +149,14 @@
               </div>
             </div>
           </div>
-          <div class="u-step col-sm-2" style="padding: 12px 2px;"><span class="u-step-number">3</span>
+          <div class="u-step col-sm-3" style="padding: 12px 2px;"><span class="u-step-number">3</span>
             <div class="u-step-desc"><span class="u-step-title" style="font-size: 16px;">CHECK KYC STATUS</span>
             </div>
             <div class="row">
               <div class="col-sm-12">
                 <div class="card">
                   <div class="table-responsive">
-                    <table class="table table-xs">
+                    <table class="table table-xs text-center">
                       <thead>
                         <tr>
                           <th scope="col" style="padding: 1px;"></th>
@@ -182,9 +168,12 @@
                       <tbody>
                         <tr>
                           <th scope="row" style="padding: 1px;">Daily</th>
-                          <td style="padding: 1px;">100</td>
-                          <td style="padding: 1px;">50</td>
-                          <td style="padding: 1px;">50</td>
+                          <td *ngIf="checkKYCStatus.length === 0" style="padding: 1px;">0</td>
+                          <td *ngIf="checkKYCStatus.length !== 0" style="padding: 1px;">{{checkKYCStatus[0].detailCustomers.length}}</td>
+                          <td *ngIf="checkKYCStatus.length === 0" style="padding: 1px;">0</td>
+                          <td *ngIf="checkKYCStatus.length !== 0" style="padding: 1px;">{{checkKYCStatus[0].daily.success}}</td>
+                          <td *ngIf="checkKYCStatus.length === 0" style="padding: 1px;">0</td>
+                          <td *ngIf="checkKYCStatus.length !== 0" style="padding: 1px;">{{checkKYCStatus[0].daily.failure}}</td>
                         </tr>
                         <tr>
                           <th scope="row" style="padding: 1px;">Week</th>
@@ -205,14 +194,14 @@
               </div>
             </div>
           </div>
-          <div class="u-step col-sm-2" style="padding: 12px 2px;"><span class="u-step-number">4</span>
+          <div class="u-step col-sm-3" style="padding: 12px 2px;"><span class="u-step-number">4</span>
             <div class="u-step-desc"><span class="u-step-title" style="font-size: 16px;">VIDEO STATEMENT</span>
             </div>
             <div class="row">
               <div class="col-sm-12">
                 <div class="card">
                   <div class="table-responsive">
-                    <table class="table table-xs">
+                    <table class="table table-xs text-center">
                       <thead>
                         <tr>
                           <th scope="col" style="padding: 1px;"></th>
@@ -224,9 +213,12 @@
                       <tbody>
                         <tr>
                           <th scope="row" style="padding: 1px;">Daily</th>
-                          <td style="padding: 1px;">100</td>
-                          <td style="padding: 1px;">50</td>
-                          <td style="padding: 1px;">50</td>
+                          <td *ngIf="videoStatement.length === 0" style="padding: 1px;">#</td>
+                          <td *ngIf="videoStatement.length !== 0" style="padding: 1px;">#</td>
+                          <td *ngIf="videoStatement.length === 0" style="padding: 1px;">0</td>
+                          <td *ngIf="videoStatement.length !== 0" style="padding: 1px;">{{videoStatement[0].daily.success}}</td>
+                          <td *ngIf="videoStatement.length === 0" style="padding: 1px;">0</td>
+                          <td *ngIf="videoStatement.length !== 0" style="padding: 1px;">{{videoStatement[0].daily.failure}}</td>
                         </tr>
                         <tr>
                           <th scope="row" style="padding: 1px;">Week</th>
@@ -247,14 +239,59 @@
               </div>
             </div>
           </div>
-          <div class="u-step col-sm-2" style="padding: 12px 2px;"><span class="u-step-number">5</span>
+          <div class="u-step col-sm-3" style="padding: 12px 2px;"><span class="u-step-number">5</span>
+            <div class="u-step-desc"><span class="u-step-title" style="font-size: 16px;">FACE MATCH</span>
+            </div>
+            <div class="row">
+              <div class="col-sm-12">
+                <div class="card">
+                  <div class="table-responsive">
+                    <table class="table table-xs text-center">
+                      <thead>
+                        <tr>
+                          <th scope="col" style="padding: 1px;"></th>
+                          <th scope="col" style="padding: 1px;">Total</th>
+                          <th scope="col" style="padding: 1px;">Success</th>
+                          <th scope="col" style="padding: 1px;">Failure</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <th scope="row" style="padding: 1px;">Daily</th>
+                          <td *ngIf="faceMatch.length === 0" style="padding: 1px;">0</td>
+                          <td *ngIf="faceMatch.length !== 0" style="padding: 1px;">{{faceMatch[0].daily.length}}</td>
+                          <td *ngIf="faceMatch.length === 0" style="padding: 1px;">0</td>
+                          <td *ngIf="faceMatch.length !== 0" style="padding: 1px;">{{faceMatch[0].daily.success}}</td>
+                          <td *ngIf="faceMatch.length === 0" style="padding: 1px;">0</td>
+                          <td *ngIf="faceMatch.length !== 0" style="padding: 1px;">{{faceMatch[0].daily.failure}}</td>
+                        </tr>
+                        <tr>
+                          <th scope="row" style="padding: 1px;">Week</th>
+                          <td style="padding: 1px;">100</td>
+                          <td style="padding: 1px;">50</td>
+                          <td style="padding: 1px;">50</td>
+                        </tr>
+                        <tr>
+                          <th scope="row" style="padding: 1px;">Month</th>
+                          <td style="padding: 1px;">100</td>
+                          <td style="padding: 1px;">50</td>
+                          <td style="padding: 1px;">50</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="u-step col-sm-3" style="padding: 12px 2px;"><span class="u-step-number">6</span>
             <div class="u-step-desc"><span class="u-step-title" style="font-size: 16px;">GET CONTRACT</span>
             </div>
             <div class="row">
               <div class="col-sm-12">
                 <div class="card">
                   <div class="table-responsive">
-                    <table class="table table-xs">
+                    <table class="table table-xs text-center">
                       <thead>
                         <tr>
                           <th scope="col" style="padding: 1px;"></th>
@@ -266,9 +303,12 @@
                       <tbody>
                         <tr>
                           <th scope="row" style="padding: 1px;">Daily</th>
-                          <td style="padding: 1px;">100</td>
-                          <td style="padding: 1px;">50</td>
-                          <td style="padding: 1px;">50</td>
+                          <td *ngIf="getContract.length === 0" style="padding: 1px;">0</td>
+                          <td *ngIf="getContract.length !== 0" style="padding: 1px;">{{getContract[0].detailCustomers.length}}</td>
+                          <td *ngIf="getContract.length === 0" style="padding: 1px;">0</td>
+                          <td *ngIf="getContract.length !== 0" style="padding: 1px;">{{getContract[0].daily.success}}</td>
+                          <td *ngIf="getContract.length === 0" style="padding: 1px;">0</td>
+                          <td *ngIf="getContract.length !== 0" style="padding: 1px;">{{getContract[0].daily.failure}}</td>
                         </tr>
                         <tr>
                           <th scope="row" style="padding: 1px;">Week</th>
@@ -289,14 +329,14 @@
               </div>
             </div>
           </div>
-          <div class="u-step col-sm-2" style="padding: 12px 2px;"><span class="u-step-number">6</span>
+          <div class="u-step col-sm-3" style="padding: 12px 2px;"><span class="u-step-number">7</span>
             <div class="u-step-desc"><span class="u-step-title" style="font-size: 16px;">SIGN CONTRACT</span>
             </div>
             <div class="row">
               <div class="col-sm-12">
                 <div class="card">
                   <div class="table-responsive">
-                    <table class="table table-xs">
+                    <table class="table table-xs text-center">
                       <thead>
                         <tr>
                           <th scope="col" style="padding: 1px;"></th>
@@ -308,9 +348,12 @@
                       <tbody>
                         <tr>
                           <th scope="row" style="padding: 1px;">Daily</th>
-                          <td style="padding: 1px;">100</td>
-                          <td style="padding: 1px;">50</td>
-                          <td style="padding: 1px;">50</td>
+                          <td *ngIf="signContract.length === 0" style="padding: 1px;">0</td>
+                          <td *ngIf="signContract.length !== 0" style="padding: 1px;">{{signContract[0].detailCustomers.length}}</td>
+                          <td *ngIf="signContract.length === 0" style="padding: 1px;">0</td>
+                          <td *ngIf="signContract.length !== 0" style="padding: 1px;">{{signContract[0].daily.success}}</td>
+                          <td *ngIf="signContract.length === 0" style="padding: 1px;">0</td>
+                          <td *ngIf="signContract.length !== 0" style="padding: 1px;">{{signContract[0].daily.failure}}</td>
                         </tr>
                         <tr>
                           <th scope="row" style="padding: 1px;">Week</th>
@@ -332,7 +375,7 @@
             </div>
           </div>
         </div>
-      </div>
+      <!-- </div> -->
     </div>
   </div>
 </div>
