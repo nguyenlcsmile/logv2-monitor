@@ -26,6 +26,13 @@ export function addInformationReducer(state: OnBoarding[] = [], action) {
                     let sign_contract_box = null;
                     let onboarding_new_customer = null;
                     let pass_onboarding = null;
+                    let issue_card_func = null;
+                    let create_signature_func = null;
+                    let request_econtract_func = null;
+                    let request_statement_func = null;
+                    let cash_withdrawal_func = null;
+                    let open_td_func = null;
+                    let closure_td_func = null;
 
                     Object.keys(dailyAdd).map(keyName => {
                         if (keyName === 'check_cust_box') {
@@ -89,6 +96,63 @@ export function addInformationReducer(state: OnBoarding[] = [], action) {
                         if (keyName === 'pass_onboarding') {
                             pass_onboarding = dailyState.daily.pass_onboarding + dailyAdd.pass_onboarding;
                         }
+
+                        if (keyName === 'issue_card_func') {
+                            issue_card_func = {
+                                total: dailyState.daily.issue_card_func.total + dailyAdd.issue_card_func.total,
+                                success:dailyState.daily.issue_card_func.success +dailyAdd.issue_card_func.success,
+                                fail: dailyState.daily.issue_card_func.fail + dailyAdd.issue_card_func.fail
+                            } 
+                        }
+
+                        if (keyName === 'create_signature_func') {
+                            create_signature_func = {
+                                total: dailyState.daily.create_signature_func.total + dailyAdd.create_signature_func.total,
+                                success:dailyState.daily.create_signature_func.success +dailyAdd.create_signature_func.success,
+                                fail: dailyState.daily.create_signature_func.fail + dailyAdd.create_signature_func.fail
+                            } 
+                        }
+
+                        if (keyName === 'request_econtract_func') {
+                            request_econtract_func = {
+                                total: dailyState.daily.request_econtract_func.total + dailyAdd.request_econtract_func.total,
+                                success:dailyState.daily.request_econtract_func.success +dailyAdd.request_econtract_func.success,
+                                fail: dailyState.daily.request_econtract_func.fail + dailyAdd.request_econtract_func.fail
+                            } 
+                        }
+
+                        if (keyName === 'request_statement_func') {
+                            request_statement_func = {
+                                total: dailyState.daily.request_statement_func.total + dailyAdd.request_statement_func.total,
+                                success:dailyState.daily.request_statement_func.success +dailyAdd.request_statement_func.success,
+                                fail: dailyState.daily.request_statement_func.fail + dailyAdd.request_statement_func.fail
+                            } 
+                        }
+
+                        if (keyName === 'cash_withdrawal_func') {
+                            cash_withdrawal_func = {
+                                total: dailyState.daily.cash_withdrawal_func.total + dailyAdd.cash_withdrawal_func.total,
+                                success:dailyState.daily.cash_withdrawal_func.success +dailyAdd.cash_withdrawal_func.success,
+                                fail: dailyState.daily.cash_withdrawal_func.fail + dailyAdd.cash_withdrawal_func.fail
+                            } 
+                        }
+
+                        if (keyName === 'open_td_func') {
+                            open_td_func = {
+                                total: dailyState.daily.open_td_func.total + dailyAdd.open_td_func.total,
+                                success:dailyState.daily.open_td_func.success +dailyAdd.open_td_func.success,
+                                fail: dailyState.daily.open_td_func.fail + dailyAdd.open_td_func.fail
+                            } 
+                        }
+
+                        if (keyName === 'closure_td_func') {
+                            closure_td_func = {
+                                total: dailyState.daily.closure_td_func.total + dailyAdd.closure_td_func.total,
+                                success:dailyState.daily.closure_td_func.success +dailyAdd.closure_td_func.success,
+                                fail: dailyState.daily.closure_td_func.fail + dailyAdd.closure_td_func.fail
+                            } 
+                        }
+
                     })
 
                     dailyNext = {
@@ -100,7 +164,14 @@ export function addInformationReducer(state: OnBoarding[] = [], action) {
                         get_contract_box: get_contract_box,
                         sign_contract_box: sign_contract_box,
                         onboarding_new_customer: onboarding_new_customer,
-                        pass_onboarding: pass_onboarding
+                        pass_onboarding: pass_onboarding,
+                        issue_card_func: issue_card_func,
+                        create_signature_func: create_signature_func,
+                        request_econtract_func: request_econtract_func,
+                        request_statement_func: request_statement_func,
+                        cash_withdrawal_func: cash_withdrawal_func,
+                        open_td_func: open_td_func,
+                        closure_td_func: closure_td_func
                     }
 
                     // console.log(">>>Check dailyNext:", dailyNext);

@@ -161,6 +161,7 @@ export class OnboardingComponent implements OnInit {
                 let item = JSON.parse(newData.value);
                 this.getValueMonitor();
                 if (item) {
+                    // console.log(item);
                     this.dataDaily = item;
                     this.disPatchMonitor(item, this.dataWeek, this.dataMonth);
                     this.updateMonitor = this.valueMonitor.slice(-1)[0];

@@ -9,8 +9,10 @@ import { AppState } from 'src/store/store.action';
 })
 export class FunctionalsComponent implements OnInit {
     valueMonitor: any;
+    updateMonitor: any;
     dataWeek: any;
     dataMonth: any;
+    dataDaily: any;
 
     issueCardFunc: any = {
         daily: {
@@ -170,6 +172,7 @@ export class FunctionalsComponent implements OnInit {
         if (data[0]) {
             this.dataWeek = data[0].week;
             this.dataMonth = data[0].month;
+            this.dataDaily = data[0].daily;
         }
     }
 
