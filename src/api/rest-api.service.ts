@@ -9,26 +9,25 @@ import { retry, catchError } from 'rxjs/operators';
 
 export class RestApiService {
     // Define API
-    apiURL = 'https://search-domain-xtczppjjd26xzzhkwyj6gl2tx4.ap-southeast-1.es.amazonaws.com/';
+    apiURL = 'https://wr8frk3uf8.execute-api.ap-southeast-1.amazonaws.com/uat/api/dashboard-log';
     constructor(private http: HttpClient) { }
     /*========================================
       CRUD Methods for consuming RESTful API
     =========================================*/
-    // Http Options
-    httpOptions = {
-        headers: new HttpHeaders({
-            'Content-Type': 'application/json',
-            'Authorization': 'Basic ' + btoa('admin:Caolenguyencln@1')
-        }),
-    };
     // HttpClient API get() method => Fetch employees list
-    postItemOnboarding(nameIndex, data) {
-        console.log(data, typeof data);
+    getToken() {
+        return 
+    }
+
+    getDataOnboarding(auth_token, body) {
         return this.http.post(
-            this.apiURL + nameIndex + "/_bulk",
-            data,
-            {
-                headers: this.httpOptions.headers,
+            this.apiURL, 
+            JSON.stringify(body),
+            { 
+                headers: new HttpHeaders({
+                    'Content-Type': 'application/json',
+                    'Authorization': `Basic ${auth_token}`
+                })
             }
         ).pipe(retry(1), catchError(this.handleError));
     }

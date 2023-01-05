@@ -48,7 +48,7 @@
                     <thead>
                       <tr>
                         <!-- <th scope="col" style="padding: 1px;"></th> -->
-                        <th scope="col" style="padding: 1px;">Total</th>
+                        <th scope="col" style="padding: 1px;">Total_Cust</th>
                         <th scope="col" style="padding: 1px;">Success</th>
                         <th scope="col" style="padding: 1px;">Failure</th>
                       </tr>
@@ -90,7 +90,7 @@
                     <thead>
                       <tr>
                         <!-- <th scope="col" style="padding: 1px;"></th> -->
-                        <th scope="col" style="padding: 1px;">Total</th>
+                        <th scope="col" style="padding: 1px;">Total_Cust</th>
                         <th scope="col" style="padding: 1px;">Success</th>
                         <th scope="col" style="padding: 1px;">Failure</th>
                       </tr>
@@ -98,7 +98,8 @@
                     <tbody>
                       <tr>
                         <!-- <th scope="row" style="padding: 1px;">Daily</th> -->
-                        <td style="padding: 1px;">100</td>
+                        <td *ngIf="issueCardFunc.total === 0" style="padding: 1px;">0</td>
+                        <td *ngIf="issueCardFunc.total !== 0" style="padding: 1px;">{{issueCardFunc.total}}</td>
                         <td style="padding: 1px;">50</td>
                         <td style="padding: 1px;">50</td>
                       </tr>

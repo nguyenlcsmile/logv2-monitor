@@ -14,16 +14,17 @@
                   <div class="media-body align-self-center">
                     <div>
                       <p style="font-size: 16px; font-weight: 1000;">Daily </p> 
-                      <p *ngIf="userAttending.length === 0" style="font-size: 16px;"><span class="counter" style="font-weight: 800;">0</span></p>
-                      <p *ngIf="userAttending.length !== 0" style="font-size: 16px;"><span class="counter" style="font-weight: 800;">{{userAttending.length}}</span></p>
-                    </div>
-                    <div>
-                      <p style="font-size: 16px;">Month </p>
                       <p style="font-size: 16px;"><span class="counter">0</span></p>
                     </div>
                     <div>
                       <p style="font-size: 16px;">Week </p>
-                      <p style="font-size: 16px;"><span class="counter">0</span></p>
+                      <p *ngIf="attending.week === 0" style="font-size: 16px;"><span class="counter">0</span></p>
+                      <p *ngIf="attending.week !== 0" style="font-size: 16px;"><span class="counter">{{attending.week}}</span></p>
+                    </div>
+                    <div>
+                      <p style="font-size: 16px;">Month </p>
+                      <p *ngIf="attending.month === 0" style="font-size: 16px;"><span class="counter">0</span></p>
+                      <p *ngIf="attending.month !== 0" style="font-size: 16px;"><span class="counter">{{attending.month}}</span></p>
                     </div>
                   </div>
                 </div>
@@ -37,16 +38,17 @@
                   <div class="media-body align-self-center">
                     <div>
                       <p style="font-size: 16px; font-weight: 1000;">Daily </p>
-                      <p *ngIf="userPassOnboarding.length === 0" style="font-size: 16px;"><span class="counter" style="font-weight: 800;">0</span></p>
-                      <p *ngIf="userPassOnboarding.length !== 0" style="font-size: 16px;"><span class="counter" style="font-weight: 800;">{{userPassOnboarding.length}}</span></p>
-                    </div>
-                    <div>
-                      <p style="font-size: 16px;">Month </p>
                       <p style="font-size: 16px;"><span class="counter">0</span></p>
                     </div>
                     <div>
                       <p style="font-size: 16px;">Week </p>
-                      <p style="font-size: 16px;"><span class="counter">0</span></p>
+                      <p *ngIf="passOnboarding.week === 0" style="font-size: 16px;"><span class="counter">0</span></p>
+                      <p *ngIf="passOnboarding.week !== 0" style="font-size: 16px;"><span class="counter">{{passOnboarding.week}}</span></p>
+                    </div>
+                    <div>
+                      <p style="font-size: 16px;">Month </p>
+                      <p *ngIf="passOnboarding.month === 0" style="font-size: 16px;"><span class="counter">0</span></p>
+                      <p *ngIf="passOnboarding.month !== 0" style="font-size: 16px;"><span class="counter">{{passOnboarding.month}}</span></p>
                     </div>
                   </div>
                 </div>
@@ -78,24 +80,27 @@
                       <tbody>
                         <tr>
                           <th scope="row" style="padding: 1px;">Daily</th>
-                          <td *ngIf="checkCustPhone.length === 0" style="padding: 1px;">0</td>
-                          <td *ngIf="checkCustPhone.length !== 0" style="padding: 1px;">{{checkCustPhone[0].detailCustomers.length}}</td>
-                          <td *ngIf="checkCustPhone.length === 0" style="padding: 1px;">0</td>
-                          <td *ngIf="checkCustPhone.length !== 0" style="padding: 1px;">{{checkCustPhone[0].daily.success}}</td>
-                          <td *ngIf="checkCustPhone.length === 0" style="padding: 1px;">0</td>
-                          <td *ngIf="checkCustPhone.length !== 0" style="padding: 1px;">{{checkCustPhone[0].daily.failure}}</td>
+                          <td style="padding: 1px;">0</td>
+                          <td style="padding: 1px;">0</td>
+                          <td style="padding: 1px;">0</td>
                         </tr>
                         <tr>
                           <th scope="row" style="padding: 1px;">Week</th>
-                          <td style="padding: 1px;">100</td>
-                          <td style="padding: 1px;">50</td>
-                          <td style="padding: 1px;">50</td>
+                          <td *ngIf="checkCustPhone.week.total === 0" style="padding: 1px;">0</td>
+                          <td *ngIf="checkCustPhone.week.total !== 0" style="padding: 1px;">{{checkCustPhone.week.total}}</td>
+                          <td *ngIf="checkCustPhone.week.success === 0" style="padding: 1px;">0</td>
+                          <td *ngIf="checkCustPhone.week.success !== 0" style="padding: 1px;">{{checkCustPhone.week.success}}</td>
+                          <td *ngIf="checkCustPhone.week.fail === 0" style="padding: 1px;">0</td>
+                          <td *ngIf="checkCustPhone.week.fail !== 0" style="padding: 1px;">{{checkCustPhone.week.fail}}</td>
                         </tr>
                         <tr>
                           <th scope="row" style="padding: 1px;">Month</th>
-                          <td style="padding: 1px;">100</td>
-                          <td style="padding: 1px;">50</td>
-                          <td style="padding: 1px;">50</td>
+                          <td *ngIf="checkCustPhone.month.total === 0" style="padding: 1px;">0</td>
+                          <td *ngIf="checkCustPhone.month.total !== 0" style="padding: 1px;">{{checkCustPhone.month.total}}</td>
+                          <td *ngIf="checkCustPhone.month.success === 0" style="padding: 1px;">0</td>
+                          <td *ngIf="checkCustPhone.month.success !== 0" style="padding: 1px;">{{checkCustPhone.month.success}}</td>
+                          <td *ngIf="checkCustPhone.month.fail === 0" style="padding: 1px;">0</td>
+                          <td *ngIf="checkCustPhone.month.fail !== 0" style="padding: 1px;">{{checkCustPhone.month.fail}}</td>
                         </tr>
                       </tbody>
                     </table>
@@ -123,24 +128,27 @@
                       <tbody>
                         <tr>
                           <th scope="row" style="padding: 1px;">Daily</th>
-                          <td *ngIf="submitEKYC.length === 0" style="padding: 1px;">0</td>
-                          <td *ngIf="submitEKYC.length !== 0" style="padding: 1px;">{{submitEKYC[0].detailCustomers.length}}</td>
-                          <td *ngIf="submitEKYC.length === 0" style="padding: 1px;">0</td>
-                          <td *ngIf="submitEKYC.length !== 0" style="padding: 1px;">{{submitEKYC[0].daily.success}}</td>
-                          <td *ngIf="submitEKYC.length === 0" style="padding: 1px;">0</td>
-                          <td *ngIf="submitEKYC.length !== 0" style="padding: 1px;">{{submitEKYC[0].daily.failure}}</td>
+                          <td style="padding: 1px;">0</td>
+                          <td style="padding: 1px;">0</td>
+                          <td style="padding: 1px;">0</td>
                         </tr>
                         <tr>
                           <th scope="row" style="padding: 1px;">Week</th>
-                          <td style="padding: 1px;">100</td>
-                          <td style="padding: 1px;">50</td>
-                          <td style="padding: 1px;">50</td>
+                          <td *ngIf="submitEKYC.week.total === 0" style="padding: 1px;">0</td>
+                          <td *ngIf="submitEKYC.week.total !== 0" style="padding: 1px;">{{submitEKYC.week.total}}</td>
+                          <td *ngIf="submitEKYC.week.success === 0" style="padding: 1px;">0</td>
+                          <td *ngIf="submitEKYC.week.success !== 0" style="padding: 1px;">{{submitEKYC.week.success}}</td>
+                          <td *ngIf="submitEKYC.week.fail === 0" style="padding: 1px;">0</td>
+                          <td *ngIf="submitEKYC.week.fail !== 0" style="padding: 1px;">{{submitEKYC.week.fail}}</td>
                         </tr>
                         <tr>
                           <th scope="row" style="padding: 1px;">Month</th>
-                          <td style="padding: 1px;">100</td>
-                          <td style="padding: 1px;">50</td>
-                          <td style="padding: 1px;">50</td>
+                          <td *ngIf="submitEKYC.month.total === 0" style="padding: 1px;">0</td>
+                          <td *ngIf="submitEKYC.month.total !== 0" style="padding: 1px;">{{submitEKYC.month.total}}</td>
+                          <td *ngIf="submitEKYC.month.success === 0" style="padding: 1px;">0</td>
+                          <td *ngIf="submitEKYC.month.success !== 0" style="padding: 1px;">{{submitEKYC.month.success}}</td>
+                          <td *ngIf="submitEKYC.month.fail === 0" style="padding: 1px;">0</td>
+                          <td *ngIf="submitEKYC.month.fail !== 0" style="padding: 1px;">{{submitEKYC.month.fail}}</td>
                         </tr>
                       </tbody>
                     </table>
@@ -168,24 +176,27 @@
                       <tbody>
                         <tr>
                           <th scope="row" style="padding: 1px;">Daily</th>
-                          <td *ngIf="checkKYCStatus.length === 0" style="padding: 1px;">0</td>
-                          <td *ngIf="checkKYCStatus.length !== 0" style="padding: 1px;">{{checkKYCStatus[0].detailCustomers.length}}</td>
-                          <td *ngIf="checkKYCStatus.length === 0" style="padding: 1px;">0</td>
-                          <td *ngIf="checkKYCStatus.length !== 0" style="padding: 1px;">{{checkKYCStatus[0].daily.success}}</td>
-                          <td *ngIf="checkKYCStatus.length === 0" style="padding: 1px;">0</td>
-                          <td *ngIf="checkKYCStatus.length !== 0" style="padding: 1px;">{{checkKYCStatus[0].daily.failure}}</td>
+                          <td style="padding: 1px;">0</td>
+                          <td style="padding: 1px;">0</td>
+                          <td style="padding: 1px;">0</td>
                         </tr>
                         <tr>
                           <th scope="row" style="padding: 1px;">Week</th>
-                          <td style="padding: 1px;">100</td>
-                          <td style="padding: 1px;">50</td>
-                          <td style="padding: 1px;">50</td>
+                          <td *ngIf="checkKYCStatus.week.total === 0" style="padding: 1px;">0</td>
+                          <td *ngIf="checkKYCStatus.week.total !== 0" style="padding: 1px;">{{checkKYCStatus.week.total}}</td>
+                          <td *ngIf="checkKYCStatus.week.success === 0" style="padding: 1px;">0</td>
+                          <td *ngIf="checkKYCStatus.week.success !== 0" style="padding: 1px;">{{checkKYCStatus.week.success}}</td>
+                          <td *ngIf="checkKYCStatus.week.fail === 0" style="padding: 1px;">0</td>
+                          <td *ngIf="checkKYCStatus.week.fail !== 0" style="padding: 1px;">{{checkKYCStatus.week.fail}}</td>
                         </tr>
                         <tr>
                           <th scope="row" style="padding: 1px;">Month</th>
-                          <td style="padding: 1px;">100</td>
-                          <td style="padding: 1px;">50</td>
-                          <td style="padding: 1px;">50</td>
+                          <td *ngIf="checkKYCStatus.month.total === 0" style="padding: 1px;">0</td>
+                          <td *ngIf="checkKYCStatus.month.total !== 0" style="padding: 1px;">{{checkKYCStatus.month.total}}</td>
+                          <td *ngIf="checkKYCStatus.month.success === 0" style="padding: 1px;">0</td>
+                          <td *ngIf="checkKYCStatus.month.success !== 0" style="padding: 1px;">{{checkKYCStatus.month.success}}</td>
+                          <td *ngIf="checkKYCStatus.month.fail === 0" style="padding: 1px;">0</td>
+                          <td *ngIf="checkKYCStatus.month.fail !== 0" style="padding: 1px;">{{checkKYCStatus.month.fail}}</td>
                         </tr>
                       </tbody>
                     </table>
@@ -213,24 +224,27 @@
                       <tbody>
                         <tr>
                           <th scope="row" style="padding: 1px;">Daily</th>
-                          <td *ngIf="videoStatement.length === 0" style="padding: 1px;">#</td>
-                          <td *ngIf="videoStatement.length !== 0" style="padding: 1px;">#</td>
-                          <td *ngIf="videoStatement.length === 0" style="padding: 1px;">0</td>
-                          <td *ngIf="videoStatement.length !== 0" style="padding: 1px;">{{videoStatement[0].daily.success}}</td>
-                          <td *ngIf="videoStatement.length === 0" style="padding: 1px;">0</td>
-                          <td *ngIf="videoStatement.length !== 0" style="padding: 1px;">{{videoStatement[0].daily.failure}}</td>
+                          <td style="padding: 1px;">0</td>
+                          <td style="padding: 1px;">0</td>
+                          <td style="padding: 1px;">0</td>
                         </tr>
                         <tr>
                           <th scope="row" style="padding: 1px;">Week</th>
-                          <td style="padding: 1px;">100</td>
-                          <td style="padding: 1px;">50</td>
-                          <td style="padding: 1px;">50</td>
+                          <td *ngIf="videoStatement.week.total === 0" style="padding: 1px;">0</td>
+                          <td *ngIf="videoStatement.week.total !== 0" style="padding: 1px;">{{videoStatement.week.total}}</td>
+                          <td *ngIf="videoStatement.week.success === 0" style="padding: 1px;">0</td>
+                          <td *ngIf="videoStatement.week.success !== 0" style="padding: 1px;">{{videoStatement.week.success}}</td>
+                          <td *ngIf="videoStatement.week.fail === 0" style="padding: 1px;">0</td>
+                          <td *ngIf="videoStatement.week.fail !== 0" style="padding: 1px;">{{videoStatement.week.fail}}</td>
                         </tr>
                         <tr>
                           <th scope="row" style="padding: 1px;">Month</th>
-                          <td style="padding: 1px;">100</td>
-                          <td style="padding: 1px;">50</td>
-                          <td style="padding: 1px;">50</td>
+                          <td *ngIf="videoStatement.month.total === 0" style="padding: 1px;">0</td>
+                          <td *ngIf="videoStatement.month.total !== 0" style="padding: 1px;">{{videoStatement.month.total}}</td>
+                          <td *ngIf="videoStatement.month.success === 0" style="padding: 1px;">0</td>
+                          <td *ngIf="videoStatement.month.success !== 0" style="padding: 1px;">{{videoStatement.month.success}}</td>
+                          <td *ngIf="videoStatement.month.fail === 0" style="padding: 1px;">0</td>
+                          <td *ngIf="videoStatement.month.fail !== 0" style="padding: 1px;">{{videoStatement.month.fail}}</td>
                         </tr>
                       </tbody>
                     </table>
@@ -258,24 +272,27 @@
                       <tbody>
                         <tr>
                           <th scope="row" style="padding: 1px;">Daily</th>
-                          <td *ngIf="faceMatch.length === 0" style="padding: 1px;">0</td>
-                          <td *ngIf="faceMatch.length !== 0" style="padding: 1px;">{{faceMatch[0].daily.length}}</td>
-                          <td *ngIf="faceMatch.length === 0" style="padding: 1px;">0</td>
-                          <td *ngIf="faceMatch.length !== 0" style="padding: 1px;">{{faceMatch[0].daily.success}}</td>
-                          <td *ngIf="faceMatch.length === 0" style="padding: 1px;">0</td>
-                          <td *ngIf="faceMatch.length !== 0" style="padding: 1px;">{{faceMatch[0].daily.failure}}</td>
+                          <td style="padding: 1px;">0</td>
+                          <td style="padding: 1px;">0</td>
+                          <td style="padding: 1px;">0</td>
                         </tr>
                         <tr>
                           <th scope="row" style="padding: 1px;">Week</th>
-                          <td style="padding: 1px;">100</td>
-                          <td style="padding: 1px;">50</td>
-                          <td style="padding: 1px;">50</td>
+                          <td *ngIf="faceMatch.week.total === 0" style="padding: 1px;">0</td>
+                          <td *ngIf="faceMatch.week.total !== 0" style="padding: 1px;">{{faceMatch.week.total}}</td>
+                          <td *ngIf="faceMatch.week.success === 0" style="padding: 1px;">0</td>
+                          <td *ngIf="faceMatch.week.success !== 0" style="padding: 1px;">{{faceMatch.week.success}}</td>
+                          <td *ngIf="faceMatch.week.fail === 0" style="padding: 1px;">0</td>
+                          <td *ngIf="faceMatch.week.fail !== 0" style="padding: 1px;">{{faceMatch.week.fail}}</td>
                         </tr>
                         <tr>
                           <th scope="row" style="padding: 1px;">Month</th>
-                          <td style="padding: 1px;">100</td>
-                          <td style="padding: 1px;">50</td>
-                          <td style="padding: 1px;">50</td>
+                          <td *ngIf="faceMatch.month.total === 0" style="padding: 1px;">0</td>
+                          <td *ngIf="faceMatch.month.total !== 0" style="padding: 1px;">{{faceMatch.month.total}}</td>
+                          <td *ngIf="faceMatch.month.success === 0" style="padding: 1px;">0</td>
+                          <td *ngIf="faceMatch.month.success !== 0" style="padding: 1px;">{{faceMatch.month.success}}</td>
+                          <td *ngIf="faceMatch.month.fail === 0" style="padding: 1px;">0</td>
+                          <td *ngIf="faceMatch.month.fail !== 0" style="padding: 1px;">{{faceMatch.month.fail}}</td>
                         </tr>
                       </tbody>
                     </table>
@@ -303,24 +320,27 @@
                       <tbody>
                         <tr>
                           <th scope="row" style="padding: 1px;">Daily</th>
-                          <td *ngIf="getContract.length === 0" style="padding: 1px;">0</td>
-                          <td *ngIf="getContract.length !== 0" style="padding: 1px;">{{getContract[0].detailCustomers.length}}</td>
-                          <td *ngIf="getContract.length === 0" style="padding: 1px;">0</td>
-                          <td *ngIf="getContract.length !== 0" style="padding: 1px;">{{getContract[0].daily.success}}</td>
-                          <td *ngIf="getContract.length === 0" style="padding: 1px;">0</td>
-                          <td *ngIf="getContract.length !== 0" style="padding: 1px;">{{getContract[0].daily.failure}}</td>
+                          <td style="padding: 1px;">0</td>
+                          <td style="padding: 1px;">0</td>
+                          <td style="padding: 1px;">0</td>
                         </tr>
                         <tr>
                           <th scope="row" style="padding: 1px;">Week</th>
-                          <td style="padding: 1px;">100</td>
-                          <td style="padding: 1px;">50</td>
-                          <td style="padding: 1px;">50</td>
+                          <td *ngIf="getContract.week.total === 0" style="padding: 1px;">0</td>
+                          <td *ngIf="getContract.week.total !== 0" style="padding: 1px;">{{getContract.week.total}}</td>
+                          <td *ngIf="getContract.week.success === 0" style="padding: 1px;">0</td>
+                          <td *ngIf="getContract.week.success !== 0" style="padding: 1px;">{{getContract.week.success}}</td>
+                          <td *ngIf="getContract.week.fail === 0" style="padding: 1px;">0</td>
+                          <td *ngIf="getContract.week.fail !== 0" style="padding: 1px;">{{getContract.week.fail}}</td>
                         </tr>
                         <tr>
                           <th scope="row" style="padding: 1px;">Month</th>
-                          <td style="padding: 1px;">100</td>
-                          <td style="padding: 1px;">50</td>
-                          <td style="padding: 1px;">50</td>
+                          <td *ngIf="getContract.month.total === 0" style="padding: 1px;">0</td>
+                          <td *ngIf="getContract.month.total !== 0" style="padding: 1px;">{{getContract.month.total}}</td>
+                          <td *ngIf="getContract.month.success === 0" style="padding: 1px;">0</td>
+                          <td *ngIf="getContract.month.success !== 0" style="padding: 1px;">{{getContract.month.success}}</td>
+                          <td *ngIf="getContract.month.fail === 0" style="padding: 1px;">0</td>
+                          <td *ngIf="getContract.month.fail !== 0" style="padding: 1px;">{{getContract.month.fail}}</td>
                         </tr>
                       </tbody>
                     </table>
@@ -348,24 +368,27 @@
                       <tbody>
                         <tr>
                           <th scope="row" style="padding: 1px;">Daily</th>
-                          <td *ngIf="signContract.length === 0" style="padding: 1px;">0</td>
-                          <td *ngIf="signContract.length !== 0" style="padding: 1px;">{{signContract[0].detailCustomers.length}}</td>
-                          <td *ngIf="signContract.length === 0" style="padding: 1px;">0</td>
-                          <td *ngIf="signContract.length !== 0" style="padding: 1px;">{{signContract[0].daily.success}}</td>
-                          <td *ngIf="signContract.length === 0" style="padding: 1px;">0</td>
-                          <td *ngIf="signContract.length !== 0" style="padding: 1px;">{{signContract[0].daily.failure}}</td>
+                          <td style="padding: 1px;">0</td>
+                          <td style="padding: 1px;">0</td>
+                          <td style="padding: 1px;">0</td>
                         </tr>
                         <tr>
                           <th scope="row" style="padding: 1px;">Week</th>
-                          <td style="padding: 1px;">100</td>
-                          <td style="padding: 1px;">50</td>
-                          <td style="padding: 1px;">50</td>
+                          <td *ngIf="signContract.week.total === 0" style="padding: 1px;">0</td>
+                          <td *ngIf="signContract.week.total !== 0" style="padding: 1px;">{{signContract.week.total}}</td>
+                          <td *ngIf="signContract.week.success === 0" style="padding: 1px;">0</td>
+                          <td *ngIf="signContract.week.success !== 0" style="padding: 1px;">{{signContract.week.success}}</td>
+                          <td *ngIf="signContract.week.fail === 0" style="padding: 1px;">0</td>
+                          <td *ngIf="signContract.week.fail !== 0" style="padding: 1px;">{{signContract.week.fail}}</td>
                         </tr>
                         <tr>
                           <th scope="row" style="padding: 1px;">Month</th>
-                          <td style="padding: 1px;">100</td>
-                          <td style="padding: 1px;">50</td>
-                          <td style="padding: 1px;">50</td>
+                          <td *ngIf="signContract.month.total === 0" style="padding: 1px;">0</td>
+                          <td *ngIf="signContract.month.total !== 0" style="padding: 1px;">{{signContract.month.total}}</td>
+                          <td *ngIf="signContract.month.success === 0" style="padding: 1px;">0</td>
+                          <td *ngIf="signContract.month.success !== 0" style="padding: 1px;">{{signContract.month.success}}</td>
+                          <td *ngIf="signContract.month.fail === 0" style="padding: 1px;">0</td>
+                          <td *ngIf="signContract.month.fail !== 0" style="padding: 1px;">{{signContract.month.fail}}</td>
                         </tr>
                       </tbody>
                     </table>
