@@ -153,13 +153,13 @@ export class OnboardingComponent implements OnInit {
         private state: State<{}>,
         public restApi: RestApiService
     ) {
-        // const persisted = localStorage.getItem('MONITOR');
+        const persisted = localStorage.getItem('MONITOR');
 
-        // if (persisted) {
-        //     this.updateMonitor = JSON.parse(persisted);
-        //     this.dataDaily = this.updateMonitor.daily;
-        //     // this.disPatchMonitor(this.updateMonitor.daily, this.updateMonitor.week, this.updateMonitor.month);
-        // }
+        if (persisted) {
+            this.updateMonitor = JSON.parse(persisted);
+            this.dataDaily = this.updateMonitor.daily;
+            // this.disPatchMonitor(this.updateMonitor.daily, this.updateMonitor.week, this.updateMonitor.month);
+        }
     }
 
     ngOnInit() {
@@ -175,7 +175,7 @@ export class OnboardingComponent implements OnInit {
                     this.disPatchMonitor(item, this.dataWeek, this.dataMonth);
                     this.updateMonitor = this.valueMonitor.slice(-1)[0];
                     console.log(this.updateMonitor);
-                    // localStorage.setItem("MONITOR", JSON.stringify(this.updateMonitor));
+                    localStorage.setItem("MONITOR", JSON.stringify(this.updateMonitor));
                 }
             }
         })
@@ -183,9 +183,9 @@ export class OnboardingComponent implements OnInit {
 
     ngAfterViewInit() {
         const date = new Date();
-        const timeWeek = `${date.getFullYear()}-0${date.getMonth() + 1}-0${date.getDate()}-week`;
-        const timeMonth = `${date.getFullYear()}-0${date.getMonth() + 1}-0${date.getDate()}-month`;
-        this.getDataDashboard('2023-01-05-week');
+        const timeWeek = `${date.getFullYear()}-0${date.getMonth() + 1}-0${date.getDate() - 1}-week`;
+        const timeMonth = `${date.getFullYear()}-0${date.getMonth() + 1}-0${date.getDate() - 1}-month`;
+        this.getDataDashboard('2023-01-04-week');
         this.getDataDashboard('2023-01-04-month');
     }
 
