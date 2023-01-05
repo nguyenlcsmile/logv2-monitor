@@ -25,10 +25,22 @@
                         <td style="padding: 1px;">ISSUE CARD</td>
                       </tr>
                       <tr>
-                        <td style="padding: 1px;">E-STATEMENT</td>
+                        <td style="padding: 1px;">CREATE-SIGNATURE</td>
                       </tr>
                       <tr>
                         <td style="padding: 1px;">REQUEST E-CONTRACT</td>
+                      </tr>
+                      <tr>
+                        <td style="padding: 1px;">REQUEST STATEMENT</td>
+                      </tr>
+                      <tr>
+                        <td style="padding: 1px;">CASH WITHDRAWAL</td>
+                      </tr>
+                      <tr>
+                        <td style="padding: 1px;">OPEN TD</td>
+                      </tr>
+                      <tr>
+                        <td style="padding: 1px;">CLOSURE TD</td>
                       </tr>
                     </tbody>
                   </table>
@@ -72,6 +84,30 @@
                         <td style="padding: 1px;">50</td>
                         <td style="padding: 1px;">50</td>
                       </tr>
+                      <tr>
+                        <!-- <th scope="row" style="padding: 1px;">Month</th> -->
+                        <td style="padding: 1px;">100</td>
+                        <td style="padding: 1px;">50</td>
+                        <td style="padding: 1px;">50</td>
+                      </tr>
+                      <tr>
+                        <!-- <th scope="row" style="padding: 1px;">Month</th> -->
+                        <td style="padding: 1px;">100</td>
+                        <td style="padding: 1px;">50</td>
+                        <td style="padding: 1px;">50</td>
+                      </tr>
+                      <tr>
+                        <!-- <th scope="row" style="padding: 1px;">Month</th> -->
+                        <td style="padding: 1px;">100</td>
+                        <td style="padding: 1px;">50</td>
+                        <td style="padding: 1px;">50</td>
+                      </tr>
+                      <tr>
+                        <!-- <th scope="row" style="padding: 1px;">Month</th> -->
+                        <td style="padding: 1px;">100</td>
+                        <td style="padding: 1px;">50</td>
+                        <td style="padding: 1px;">50</td>
+                      </tr>
                     </tbody>
                   </table>
                 </div>
@@ -98,22 +134,66 @@
                     <tbody>
                       <tr>
                         <!-- <th scope="row" style="padding: 1px;">Daily</th> -->
-                        <td *ngIf="issueCardFunc.total === 0" style="padding: 1px;">0</td>
-                        <td *ngIf="issueCardFunc.total !== 0" style="padding: 1px;">{{issueCardFunc.total}}</td>
-                        <td style="padding: 1px;">50</td>
-                        <td style="padding: 1px;">50</td>
+                        <td *ngIf="issueCardFunc.week.total === 0" style="padding: 1px;">0</td>
+                        <td *ngIf="issueCardFunc.week.total !== 0" style="padding: 1px;">{{issueCardFunc.week.total}}</td>
+                        <td *ngIf="issueCardFunc.week.success === 0" style="padding: 1px;">0</td>
+                        <td *ngIf="issueCardFunc.week.success !== 0" style="padding: 1px;">{{issueCardFunc.week.success}}</td>
+                        <td *ngIf="issueCardFunc.week.fail === 0" style="padding: 1px;">0</td>
+                        <td *ngIf="issueCardFunc.week.fail !== 0" style="padding: 1px;">{{issueCardFunc.week.fail}}</td>
                       </tr>
                       <tr>
                         <!-- <th scope="row" style="padding: 1px;">Week</th> -->
-                        <td style="padding: 1px;">100</td>
-                        <td style="padding: 1px;">50</td>
-                        <td style="padding: 1px;">50</td>
+                        <td *ngIf="createSignatureFunc.week.total === 0" style="padding: 1px;">0</td>
+                        <td *ngIf="createSignatureFunc.week.total !== 0" style="padding: 1px;">{{createSignatureFunc.week.total}}</td>
+                        <td *ngIf="createSignatureFunc.week.success === 0" style="padding: 1px;">0</td>
+                        <td *ngIf="createSignatureFunc.week.success !== 0" style="padding: 1px;">{{createSignatureFunc.week.success}}</td>
+                        <td *ngIf="createSignatureFunc.week.fail === 0" style="padding: 1px;">0</td>
+                        <td *ngIf="createSignatureFunc.week.fail !== 0" style="padding: 1px;">{{createSignatureFunc.week.fail}}</td>
                       </tr>
                       <tr>
-                        <!-- <th scope="row" style="padding: 1px;">Month</th> -->
-                        <td style="padding: 1px;">100</td>
-                        <td style="padding: 1px;">50</td>
-                        <td style="padding: 1px;">50</td>
+                        <!-- <th scope="row" style="padding: 1px;">Week</th> -->
+                        <td *ngIf="requestContract.week.total === 0" style="padding: 1px;">0</td>
+                        <td *ngIf="requestContract.week.total !== 0" style="padding: 1px;">{{requestContract.week.total}}</td>
+                        <td *ngIf="requestContract.week.success === 0" style="padding: 1px;">0</td>
+                        <td *ngIf="requestContract.week.success !== 0" style="padding: 1px;">{{requestContract.week.success}}</td>
+                        <td *ngIf="requestContract.week.fail === 0" style="padding: 1px;">0</td>
+                        <td *ngIf="requestContract.week.fail !== 0" style="padding: 1px;">{{requestContract.week.fail}}</td>
+                      </tr>
+                      <tr>
+                        <!-- <th scope="row" style="padding: 1px;">Week</th> -->
+                        <td *ngIf="requestStatement.week.total === 0" style="padding: 1px;">0</td>
+                        <td *ngIf="requestStatement.week.total !== 0" style="padding: 1px;">{{requestStatement.week.total}}</td>
+                        <td *ngIf="requestStatement.week.success === 0" style="padding: 1px;">0</td>
+                        <td *ngIf="requestStatement.week.success !== 0" style="padding: 1px;">{{requestStatement.week.success}}</td>
+                        <td *ngIf="requestStatement.week.fail === 0" style="padding: 1px;">0</td>
+                        <td *ngIf="requestStatement.week.fail !== 0" style="padding: 1px;">{{requestStatement.week.fail}}</td>
+                      </tr>
+                      <tr>
+                        <!-- <th scope="row" style="padding: 1px;">Week</th> -->
+                        <td *ngIf="cashWithdrawal.week.total === 0" style="padding: 1px;">0</td>
+                        <td *ngIf="cashWithdrawal.week.total !== 0" style="padding: 1px;">{{cashWithdrawal.week.total}}</td>
+                        <td *ngIf="cashWithdrawal.week.success === 0" style="padding: 1px;">0</td>
+                        <td *ngIf="cashWithdrawal.week.success !== 0" style="padding: 1px;">{{cashWithdrawal.week.success}}</td>
+                        <td *ngIf="cashWithdrawal.week.fail === 0" style="padding: 1px;">0</td>
+                        <td *ngIf="cashWithdrawal.week.fail !== 0" style="padding: 1px;">{{cashWithdrawal.week.fail}}</td>
+                      </tr>
+                      <tr>
+                        <!-- <th scope="row" style="padding: 1px;">Week</th> -->
+                        <td *ngIf="openTd.week.total === 0" style="padding: 1px;">0</td>
+                        <td *ngIf="openTd.week.total !== 0" style="padding: 1px;">{{openTd.week.total}}</td>
+                        <td *ngIf="openTd.week.success === 0" style="padding: 1px;">0</td>
+                        <td *ngIf="openTd.week.success !== 0" style="padding: 1px;">{{openTd.week.success}}</td>
+                        <td *ngIf="openTd.week.fail === 0" style="padding: 1px;">0</td>
+                        <td *ngIf="openTd.week.fail !== 0" style="padding: 1px;">{{openTd.week.fail}}</td>
+                      </tr>
+                      <tr>
+                        <!-- <th scope="row" style="padding: 1px;">Week</th> -->
+                        <td *ngIf="closureTd.week.total === 0" style="padding: 1px;">0</td>
+                        <td *ngIf="closureTd.week.total !== 0" style="padding: 1px;">{{closureTd.week.total}}</td>
+                        <td *ngIf="closureTd.week.success === 0" style="padding: 1px;">0</td>
+                        <td *ngIf="closureTd.week.success !== 0" style="padding: 1px;">{{closureTd.week.success}}</td>
+                        <td *ngIf="closureTd.week.fail === 0" style="padding: 1px;">0</td>
+                        <td *ngIf="closureTd.week.fail !== 0" style="padding: 1px;">{{closureTd.week.fail}}</td>
                       </tr>
                     </tbody>
                   </table>
@@ -133,7 +213,7 @@
                     <thead>
                       <tr>
                         <!-- <th scope="col" style="padding: 1px;"></th> -->
-                        <th scope="col" style="padding: 1px;">Total</th>
+                        <th scope="col" style="padding: 1px;">Total_Cust</th>
                         <th scope="col" style="padding: 1px;">Success</th>
                         <th scope="col" style="padding: 1px;">Failure</th>
                       </tr>
@@ -141,21 +221,66 @@
                     <tbody>
                       <tr>
                         <!-- <th scope="row" style="padding: 1px;">Daily</th> -->
-                        <td style="padding: 1px;">100</td>
-                        <td style="padding: 1px;">50</td>
-                        <td style="padding: 1px;">50</td>
+                        <td *ngIf="issueCardFunc.month.total === 0" style="padding: 1px;">0</td>
+                        <td *ngIf="issueCardFunc.month.total !== 0" style="padding: 1px;">{{issueCardFunc.month.total}}</td>
+                        <td *ngIf="issueCardFunc.month.success === 0" style="padding: 1px;">0</td>
+                        <td *ngIf="issueCardFunc.month.success !== 0" style="padding: 1px;">{{issueCardFunc.month.success}}</td>
+                        <td *ngIf="issueCardFunc.month.fail === 0" style="padding: 1px;">0</td>
+                        <td *ngIf="issueCardFunc.month.fail !== 0" style="padding: 1px;">{{issueCardFunc.month.fail}}</td>
                       </tr>
                       <tr>
                         <!-- <th scope="row" style="padding: 1px;">Week</th> -->
-                        <td style="padding: 1px;">100</td>
-                        <td style="padding: 1px;">50</td>
-                        <td style="padding: 1px;">50</td>
+                        <td *ngIf="createSignatureFunc.month.total === 0" style="padding: 1px;">0</td>
+                        <td *ngIf="createSignatureFunc.month.total !== 0" style="padding: 1px;">{{createSignatureFunc.month.total}}</td>
+                        <td *ngIf="createSignatureFunc.month.success === 0" style="padding: 1px;">0</td>
+                        <td *ngIf="createSignatureFunc.month.success !== 0" style="padding: 1px;">{{createSignatureFunc.month.success}}</td>
+                        <td *ngIf="createSignatureFunc.month.fail === 0" style="padding: 1px;">0</td>
+                        <td *ngIf="createSignatureFunc.month.fail !== 0" style="padding: 1px;">{{createSignatureFunc.month.fail}}</td>
                       </tr>
                       <tr>
-                        <!-- <th scope="row" style="padding: 1px;">Month</th> -->
-                        <td style="padding: 1px;">100</td>
-                        <td style="padding: 1px;">50</td>
-                        <td style="padding: 1px;">50</td>
+                        <!-- <th scope="row" style="padding: 1px;">month</th> -->
+                        <td *ngIf="requestContract.month.total === 0" style="padding: 1px;">0</td>
+                        <td *ngIf="requestContract.month.total !== 0" style="padding: 1px;">{{requestContract.month.total}}</td>
+                        <td *ngIf="requestContract.month.success === 0" style="padding: 1px;">0</td>
+                        <td *ngIf="requestContract.month.success !== 0" style="padding: 1px;">{{requestContract.month.success}}</td>
+                        <td *ngIf="requestContract.month.fail === 0" style="padding: 1px;">0</td>
+                        <td *ngIf="requestContract.month.fail !== 0" style="padding: 1px;">{{requestContract.month.fail}}</td>
+                      </tr>
+                      <tr>
+                        <!-- <th scope="row" style="padding: 1px;">month</th> -->
+                        <td *ngIf="requestStatement.month.total === 0" style="padding: 1px;">0</td>
+                        <td *ngIf="requestStatement.month.total !== 0" style="padding: 1px;">{{requestStatement.month.total}}</td>
+                        <td *ngIf="requestStatement.month.success === 0" style="padding: 1px;">0</td>
+                        <td *ngIf="requestStatement.month.success !== 0" style="padding: 1px;">{{requestStatement.month.success}}</td>
+                        <td *ngIf="requestStatement.month.fail === 0" style="padding: 1px;">0</td>
+                        <td *ngIf="requestStatement.month.fail !== 0" style="padding: 1px;">{{requestStatement.month.fail}}</td>
+                      </tr>
+                      <tr>
+                        <!-- <th scope="row" style="padding: 1px;">month</th> -->
+                        <td *ngIf="cashWithdrawal.month.total === 0" style="padding: 1px;">0</td>
+                        <td *ngIf="cashWithdrawal.month.total !== 0" style="padding: 1px;">{{cashWithdrawal.month.total}}</td>
+                        <td *ngIf="cashWithdrawal.month.success === 0" style="padding: 1px;">0</td>
+                        <td *ngIf="cashWithdrawal.month.success !== 0" style="padding: 1px;">{{cashWithdrawal.month.success}}</td>
+                        <td *ngIf="cashWithdrawal.month.fail === 0" style="padding: 1px;">0</td>
+                        <td *ngIf="cashWithdrawal.month.fail !== 0" style="padding: 1px;">{{cashWithdrawal.month.fail}}</td>
+                      </tr>
+                      <tr>
+                        <!-- <th scope="row" style="padding: 1px;">month</th> -->
+                        <td *ngIf="openTd.month.total === 0" style="padding: 1px;">0</td>
+                        <td *ngIf="openTd.month.total !== 0" style="padding: 1px;">{{openTd.month.total}}</td>
+                        <td *ngIf="openTd.month.success === 0" style="padding: 1px;">0</td>
+                        <td *ngIf="openTd.month.success !== 0" style="padding: 1px;">{{openTd.month.success}}</td>
+                        <td *ngIf="openTd.month.fail === 0" style="padding: 1px;">0</td>
+                        <td *ngIf="openTd.month.fail !== 0" style="padding: 1px;">{{openTd.month.fail}}</td>
+                      </tr>
+                      <tr>
+                        <!-- <th scope="row" style="padding: 1px;">month</th> -->
+                        <td *ngIf="closureTd.month.total === 0" style="padding: 1px;">0</td>
+                        <td *ngIf="closureTd.month.total !== 0" style="padding: 1px;">{{closureTd.month.total}}</td>
+                        <td *ngIf="closureTd.month.success === 0" style="padding: 1px;">0</td>
+                        <td *ngIf="closureTd.month.success !== 0" style="padding: 1px;">{{closureTd.month.success}}</td>
+                        <td *ngIf="closureTd.month.fail === 0" style="padding: 1px;">0</td>
+                        <td *ngIf="closureTd.month.fail !== 0" style="padding: 1px;">{{closureTd.month.fail}}</td>
                       </tr>
                     </tbody>
                   </table>

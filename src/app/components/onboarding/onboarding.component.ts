@@ -161,7 +161,7 @@ export class OnboardingComponent implements OnInit {
         "cash_withdrawal_func": {"total": 1, "success": 15, "fail": 5}, 
         "open_td_func": {"total": 0, "success": 2, "fail": 0}, 
         "closure_td_func": {"total": 0, "success": 1, "fail": 0}, 
-        "uuid": "2023-01-04-week"
+        "uuid": "2023-01-04-today"
     };
 
     constructor(
@@ -172,42 +172,13 @@ export class OnboardingComponent implements OnInit {
     ) {}
 
     ngOnInit() {
-        // this.api.SubscribeToNewMessageListener().subscribe({
-        //     next: async (data) => {
-        //         let newData = data.value.data.subscribeToNewMessage;
-        //         let item = JSON.parse(newData.value);
-        //         // console.log(item);
-        //         if (item.nameBox === 'Check Customer Phone') {
-        //             this.attending = [item];
-        //             this.checkCustPhone = [item];
-        //         }
-        //         else if (item.nameBox === 'Submit EKYC') {
-        //             this.submitEKYC = [item];
-        //         }
-        //         else if (item.nameBox === 'Check KYC Status') {
-        //             this.checkKYCStatus = [item];
-        //         }
-        //         else if (item.nameBox === 'Video Statement') {
-        //             this.videoStatement = [item];
-        //         }
-        //         else if (item.nameBox === 'Face Match') {
-        //             this.faceMatch = [item];
-        //         }
-        //         else if (item.nameBox === 'Get Contract') {
-        //             this.getContract = [item];
-        //         }
-        //         else if (item.nameBox === 'Sign Contract') {
-        //             this.signContract = [item];
-        //         }
-        //     }
-        // })
-        let daily = {
-            total: this.dataDaily.check_cust_box.total,
-            success: this.dataDaily.check_cust_box.success,
-            fail: this.dataDaily.check_cust_box.fail
-        }
-
-        // console.log(this.checkCustPhone);
+        this.api.SubscribeToNewMessageListener().subscribe({
+            next: async (data) => {
+                let newData = data.value.data.subscribeToNewMessage;
+                let item = JSON.parse(newData.value);
+                console.log(item);
+            }
+        })
     }
 
     ngAfterViewInit() {
@@ -270,15 +241,16 @@ export class OnboardingComponent implements OnInit {
                 })
             }
             if (this.dataWeek && this.dataMonth) {
-                this.disPatchOnboarding(this.dataWeek, this.dataMonth);
+                this.disPatchMonitor(this.dataDaily, this.dataWeek, this.dataMonth);
             }
         })
     }
 
-    disPatchOnboarding(dataWeek, dataMonth) {
+    disPatchMonitor(dataDaily, dataWeek, dataMonth) {
         this.store.dispatch({
             type: 'Monitor',
             payload: <OnBoarding>{
+                daily: dataDaily,
                 week: dataWeek,
                 month: dataMonth
             }

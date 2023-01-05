@@ -1,4 +1,5 @@
 export interface OnBoarding {
-   week: any;
-   month: any;
+   daily?: any;
+   week?: any;
+   month?: any;
 }

@@ -13,9 +13,123 @@ export class FunctionalsComponent implements OnInit {
     dataMonth: any;
 
     issueCardFunc: any = {
-        total: 0,
-        success: 0,
-        fail: 0
+        daily: {
+            total: 0,
+            success: 0,
+            fail: 0,
+        },
+        week: {
+            total: 0,
+            success: 0,
+            fail: 0,
+        },
+        month: {
+            total: 0,
+            success: 0,
+            fail: 0,
+        }
+    }
+    createSignatureFunc: any = {
+        daily: {
+            total: 0,
+            success: 0,
+            fail: 0,
+        },
+        week: {
+            total: 0,
+            success: 0,
+            fail: 0,
+        },
+        month: {
+            total: 0,
+            success: 0,
+            fail: 0,
+        }
+    }
+    requestContract: any = {
+        daily: {
+            total: 0,
+            success: 0,
+            fail: 0,
+        },
+        week: {
+            total: 0,
+            success: 0,
+            fail: 0,
+        },
+        month: {
+            total: 0,
+            success: 0,
+            fail: 0,
+        }
+    }
+    requestStatement: any = {
+        daily: {
+            total: 0,
+            success: 0,
+            fail: 0,
+        },
+        week: {
+            total: 0,
+            success: 0,
+            fail: 0,
+        },
+        month: {
+            total: 0,
+            success: 0,
+            fail: 0,
+        }
+    }
+    cashWithdrawal: any = {
+        daily: {
+            total: 0,
+            success: 0,
+            fail: 0,
+        },
+        week: {
+            total: 0,
+            success: 0,
+            fail: 0,
+        },
+        month: {
+            total: 0,
+            success: 0,
+            fail: 0,
+        }
+    }
+    openTd: any = {
+        daily: {
+            total: 0,
+            success: 0,
+            fail: 0,
+        },
+        week: {
+            total: 0,
+            success: 0,
+            fail: 0,
+        },
+        month: {
+            total: 0,
+            success: 0,
+            fail: 0,
+        }
+    }
+    closureTd: any = {
+        daily: {
+            total: 0,
+            success: 0,
+            fail: 0,
+        },
+        week: {
+            total: 0,
+            success: 0,
+            fail: 0,
+        },
+        month: {
+            total: 0,
+            success: 0,
+            fail: 0,
+        }
     }
 
     constructor(
@@ -30,7 +144,24 @@ export class FunctionalsComponent implements OnInit {
 
         if (this.dataWeek) {
             Object.keys(this.dataWeek).map(keyName => {
-                if (keyName === 'issue_card_func') this.issueCardFunc = this.dataWeek.issue_card_func;
+                if (keyName === 'issue_card_func') this.issueCardFunc.week = this.dataWeek.issue_card_func;
+                if (keyName === 'create_signature_func') this.createSignatureFunc.week = this.dataWeek.create_signature_func;
+                if (keyName === 'request_econtract_func') this.requestContract.week = this.dataWeek.request_econtract_func;
+                if (keyName === 'request_statement_func') this.requestStatement.week = this.dataWeek.request_statement_func;
+                if (keyName === 'cash_withdrawal_func') this.cashWithdrawal.week = this.dataWeek.cash_withdrawal_func;
+                if (keyName === 'open_td_func') this.openTd.week = this.dataWeek.open_td_func;
+                if (keyName === 'closure_td_func') this.closureTd.week = this.dataWeek.closure_td_func;
+            })
+        }
+        if (this.dataMonth) {
+            Object.keys(this.dataMonth).map(keyName => {
+                if (keyName === 'issue_card_func') this.issueCardFunc.month = this.dataMonth.issue_card_func;
+                if (keyName === 'create_signature_func') this.createSignatureFunc.month = this.dataMonth.create_signature_func;
+                if (keyName === 'request_econtract_func') this.requestContract.month = this.dataMonth.request_econtract_func;
+                if (keyName === 'request_statement_func') this.requestStatement.month = this.dataMonth.request_statement_func;
+                if (keyName === 'cash_withdrawal_func') this.cashWithdrawal.month = this.dataMonth.cash_withdrawal_func;
+                if (keyName === 'open_td_func') this.openTd.month = this.dataMonth.open_td_func;
+                if (keyName === 'closure_td_func') this.closureTd.month = this.dataMonth.closure_td_func;
             })
         }
     }
