@@ -14,7 +14,7 @@
                   <div class="media-body align-self-center">
                     <div>
                       <p style="font-size: 16px; font-weight: 1000;">Daily </p> 
-                      <p style="font-size: 16px;"><span class="counter">0</span></p>
+                      <p style="font-size: 16px;"><span class="counter">{{updateMonitor?.daily?.onboarding_new_customer}}</span></p>
                     </div>
                     <div>
                       <p style="font-size: 16px;">Week </p>
@@ -38,7 +38,7 @@
                   <div class="media-body align-self-center">
                     <div>
                       <p style="font-size: 16px; font-weight: 1000;">Daily </p>
-                      <p style="font-size: 16px;"><span class="counter">0</span></p>
+                      <p style="font-size: 16px;"><span class="counter">{{updateMonitor?.daily?.pass_onboarding}}</span></p>
                     </div>
                     <div>
                       <p style="font-size: 16px;">Week </p>
@@ -80,9 +80,9 @@
                       <tbody>
                         <tr>
                           <th scope="row" style="padding: 1px;">Daily</th>
-                          <td style="padding: 1px;">0</td>
-                          <td style="padding: 1px;">0</td>
-                          <td style="padding: 1px;">0</td>
+                          <td style="padding: 1px;">{{updateMonitor?.daily?.check_cust_box?.total}}</td>
+                          <td style="padding: 1px;">{{updateMonitor?.daily?.check_cust_box?.success}}</td>
+                          <td style="padding: 1px;">{{updateMonitor?.daily?.check_cust_box?.fail}}</td>
                         </tr>
                         <tr>
                           <th scope="row" style="padding: 1px;">Week</th>
@@ -128,9 +128,9 @@
                       <tbody>
                         <tr>
                           <th scope="row" style="padding: 1px;">Daily</th>
-                          <td style="padding: 1px;">0</td>
-                          <td style="padding: 1px;">0</td>
-                          <td style="padding: 1px;">0</td>
+                          <td style="padding: 1px;">{{updateMonitor?.daily?.submit_ekyc_box?.total}}</td>
+                          <td style="padding: 1px;">{{updateMonitor?.daily?.submit_ekyc_box?.success}}</td>
+                          <td style="padding: 1px;">{{updateMonitor?.daily?.submit_ekyc_box?.fail}}</td>
                         </tr>
                         <tr>
                           <th scope="row" style="padding: 1px;">Week</th>
@@ -176,9 +176,9 @@
                       <tbody>
                         <tr>
                           <th scope="row" style="padding: 1px;">Daily</th>
-                          <td style="padding: 1px;">0</td>
-                          <td style="padding: 1px;">0</td>
-                          <td style="padding: 1px;">0</td>
+                          <td style="padding: 1px;">{{updateMonitor?.daily?.submit_kyc_status_box?.total}}</td>
+                          <td style="padding: 1px;">{{updateMonitor?.daily?.submit_kyc_status_box?.success}}</td>
+                          <td style="padding: 1px;">{{updateMonitor?.daily?.submit_kyc_status_box?.fail}}</td>
                         </tr>
                         <tr>
                           <th scope="row" style="padding: 1px;">Week</th>
@@ -224,9 +224,9 @@
                       <tbody>
                         <tr>
                           <th scope="row" style="padding: 1px;">Daily</th>
-                          <td style="padding: 1px;">0</td>
-                          <td style="padding: 1px;">0</td>
-                          <td style="padding: 1px;">0</td>
+                          <td style="padding: 1px;">{{updateMonitor?.daily?.video_statement_box?.total}}</td>
+                          <td style="padding: 1px;">{{updateMonitor?.daily?.video_statement_box?.success}}</td>
+                          <td style="padding: 1px;">{{updateMonitor?.daily?.video_statement_box?.fail}}</td>
                         </tr>
                         <tr>
                           <th scope="row" style="padding: 1px;">Week</th>
@@ -272,9 +272,9 @@
                       <tbody>
                         <tr>
                           <th scope="row" style="padding: 1px;">Daily</th>
-                          <td style="padding: 1px;">0</td>
-                          <td style="padding: 1px;">0</td>
-                          <td style="padding: 1px;">0</td>
+                          <td style="padding: 1px;">{{updateMonitor?.daily?.face_match_box?.total}}</td>
+                          <td style="padding: 1px;">{{updateMonitor?.daily?.face_match_box?.success}}</td>
+                          <td style="padding: 1px;">{{updateMonitor?.daily?.face_match_box?.fail}}</td>
                         </tr>
                         <tr>
                           <th scope="row" style="padding: 1px;">Week</th>
@@ -320,9 +320,9 @@
                       <tbody>
                         <tr>
                           <th scope="row" style="padding: 1px;">Daily</th>
-                          <td style="padding: 1px;">0</td>
-                          <td style="padding: 1px;">0</td>
-                          <td style="padding: 1px;">0</td>
+                          <td style="padding: 1px;">{{updateMonitor?.daily?.get_contract_box?.total}}</td>
+                          <td style="padding: 1px;">{{updateMonitor?.daily?.get_contract_box?.success}}</td>
+                          <td style="padding: 1px;">{{updateMonitor?.daily?.get_contract_box?.fail}}</td>
                         </tr>
                         <tr>
                           <th scope="row" style="padding: 1px;">Week</th>
@@ -368,9 +368,9 @@
                       <tbody>
                         <tr>
                           <th scope="row" style="padding: 1px;">Daily</th>
-                          <td style="padding: 1px;">0</td>
-                          <td style="padding: 1px;">0</td>
-                          <td style="padding: 1px;">0</td>
+                          <td style="padding: 1px;">{{updateMonitor?.daily?.sign_contract_box?.total}}</td>
+                          <td style="padding: 1px;">{{updateMonitor?.daily?.sign_contract_box?.success}}</td>
+                          <td style="padding: 1px;">{{updateMonitor?.daily?.sign_contract_box?.fail}}</td>
                         </tr>
                         <tr>
                           <th scope="row" style="padding: 1px;">Week</th>

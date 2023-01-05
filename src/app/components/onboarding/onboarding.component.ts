@@ -12,6 +12,7 @@ import { RestApiService } from 'src/api/rest-api.service';
 })
 export class OnboardingComponent implements OnInit {
     valueMonitor: any;
+    updateMonitor: any;
     checkCustPhone: any = {
         daily: {
             total: 0,
@@ -144,25 +145,7 @@ export class OnboardingComponent implements OnInit {
 
     dataWeek: any;
     dataMonth: any;
-    dataDaily: any = {
-        "check_cust_box": {"total": 105, "success": 2573, "fail": 29}, 
-        "submit_ekyc_box": {"total": 24, "success": 77, "fail": 7}, 
-        "submit_kyc_status_box": {"total": 31, "success": 468, "fail": 24}, 
-        "video_statement_box": {"total": 0, "success": 17, "fail": 0}, 
-        "face_match_box": {"total": 19, "success": 271, "fail": 127}, 
-        "get_contract_box": {"total": 18, "success": 151, "fail": 102}, 
-        "sign_contract_box": {"total": 11, "success": 44, "fail": 2}, 
-        "onboarding_new_customer": 402, 
-        "pass_onboarding": 10, 
-        "issue_card_func": {"total": 8, "success": 10, "fail": 3}, 
-        "create_signature_func": {"total": 1, "success": 2, "fail": 4}, 
-        "request_econtract_func": {"total": 0, "success": 0, "fail": 0}, 
-        "request_statement_func": {"total": 0, "success": 0, "fail": 0}, 
-        "cash_withdrawal_func": {"total": 1, "success": 15, "fail": 5}, 
-        "open_td_func": {"total": 0, "success": 2, "fail": 0}, 
-        "closure_td_func": {"total": 0, "success": 1, "fail": 0}, 
-        "uuid": "2023-01-04-today"
-    };
+    dataDaily: any;
 
     constructor(
         private api: APIService,
@@ -176,7 +159,13 @@ export class OnboardingComponent implements OnInit {
             next: async (data) => {
                 let newData = data.value.data.subscribeToNewMessage;
                 let item = JSON.parse(newData.value);
-                console.log(item);
+                this.getValueMonitor();
+                if (item) {
+                    this.dataDaily = item;
+                    this.disPatchMonitor(item, this.dataWeek, this.dataMonth);
+                    this.updateMonitor = this.valueMonitor.slice(-1)[0];
+                    console.log(this.updateMonitor, typeof this.updateMonitor);
+                }
             }
         })
     }
@@ -184,8 +173,6 @@ export class OnboardingComponent implements OnInit {
     ngAfterViewInit() {
         this.getDataDashboard('2023-01-04-week');  
         this.getDataDashboard('2023-01-04-month');
-        // this.getValueMonitor();
-        // console.log(this.valueMonitor);
     }
 
     ngDoCheck() {
@@ -217,6 +204,8 @@ export class OnboardingComponent implements OnInit {
                 if (keyName === 'pass_onboarding') this.passOnboarding.month = this.dataMonth.pass_onboarding;
             })
         }
+        this.getValueMonitor();
+        // console.log(this.valueMonitor);
     }
 
     async getDataDashboard(timeData) {
@@ -259,7 +248,7 @@ export class OnboardingComponent implements OnInit {
 
     getValueMonitor() {
         this.store.select(state => state.informationdata).subscribe(
-            getdata => this.valueMonitor = getdata
+            getdata =>  this.valueMonitor = getdata   
         );
     }
 }
