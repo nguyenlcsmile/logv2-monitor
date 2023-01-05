@@ -29,19 +29,25 @@
                           <button class="btn btn-dark">CREDIT</button>
                         </td>
                         <td>
-                          <button class="btn btn-light">100</button>
-                          <button class="btn btn-success mx-2">50</button>
-                          <button class="btn btn-danger">50</button>
+                          <button class="btn btn-light">{{dataDaily?.transaction_napas?.total}}</button>
+                          <button class="btn btn-success mx-2">{{dataDaily?.transaction_napas?.success}}</button>
+                          <button class="btn btn-danger">{{dataDaily?.transaction_napas?.fail}}</button>
                         </td>
                         <td>
-                          <button class="btn btn-light">100</button>
-                          <button class="btn btn-success mx-2">50</button>
-                          <button class="btn btn-danger">50</button>
+                          <button *ngIf="transactionNapas.week.total === 0" class="btn btn-light">0</button>
+                          <button *ngIf="transactionNapas.week.total !== 0" class="btn btn-light">{{transactionNapas.week.total}}</button>
+                          <button *ngIf="transactionNapas.week.success === 0" class="btn btn-success mx-2">0</button>
+                          <button *ngIf="transactionNapas.week.success !== 0" class="btn btn-success mx-2">{{transactionNapas.week.success}}</button>
+                          <button *ngIf="transactionNapas.week.fail === 0" class="btn btn-danger">0</button>
+                          <button *ngIf="transactionNapas.week.fail !== 0" class="btn btn-danger">{{transactionNapas.week.fail}}</button>
                         </td>
                         <td>
-                          <button class="btn btn-light">100</button>
-                          <button class="btn btn-success mx-2">50</button>
-                          <button class="btn btn-danger">50</button>
+                          <button *ngIf="transactionNapas.month.total === 0" class="btn btn-light">0</button>
+                          <button *ngIf="transactionNapas.month.total !== 0" class="btn btn-light">{{transactionNapas.month.total}}</button>
+                          <button *ngIf="transactionNapas.month.success === 0" class="btn btn-success mx-2">0</button>
+                          <button *ngIf="transactionNapas.month.success !== 0" class="btn btn-success mx-2">{{transactionNapas.month.success}}</button>
+                          <button *ngIf="transactionNapas.month.fail === 0" class="btn btn-danger">0</button>
+                          <button *ngIf="transactionNapas.month.fail !== 0" class="btn btn-danger">{{transactionNapas.month.fail}}</button>
                         </td>
                       </tr>
                     </tbody>

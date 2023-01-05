@@ -64,7 +64,7 @@ export class OnboardingComponent implements OnInit {
             fail: 0,
         }
     };
-    videoStatement:any = {
+    videoStatement: any = {
         daily: {
             total: 0,
             success: 0,
@@ -115,7 +115,7 @@ export class OnboardingComponent implements OnInit {
             fail: 0,
         }
     };
-    getContract:any = {
+    getContract: any = {
         daily: {
             total: 0,
             success: 0,
@@ -132,12 +132,12 @@ export class OnboardingComponent implements OnInit {
             fail: 0,
         }
     };
-    attending: any =  {
+    attending: any = {
         daily: 0,
         week: 0,
         month: 0
     };
-    passOnboarding: any =  {
+    passOnboarding: any = {
         daily: 0,
         week: 0,
         month: 0
@@ -152,27 +152,40 @@ export class OnboardingComponent implements OnInit {
         private store: Store<AppState>,
         private state: State<{}>,
         public restApi: RestApiService
-    ) {}
+    ) {
+        // const persisted = localStorage.getItem('MONITOR');
+
+        // if (persisted) {
+        //     this.updateMonitor = JSON.parse(persisted);
+        //     this.dataDaily = this.updateMonitor.daily;
+        //     // this.disPatchMonitor(this.updateMonitor.daily, this.updateMonitor.week, this.updateMonitor.month);
+        // }
+    }
 
     ngOnInit() {
         this.api.SubscribeToNewMessageListener().subscribe({
             next: async (data) => {
                 let newData = data.value.data.subscribeToNewMessage;
                 let item = JSON.parse(newData.value);
+                console.log(">>>Check Item:", item);
                 this.getValueMonitor();
                 if (item) {
                     // console.log(item);
                     this.dataDaily = item;
                     this.disPatchMonitor(item, this.dataWeek, this.dataMonth);
                     this.updateMonitor = this.valueMonitor.slice(-1)[0];
-                    console.log(this.updateMonitor, typeof this.updateMonitor);
+                    console.log(this.updateMonitor);
+                    // localStorage.setItem("MONITOR", JSON.stringify(this.updateMonitor));
                 }
             }
         })
     }
 
     ngAfterViewInit() {
-        this.getDataDashboard('2023-01-04-week');  
+        const date = new Date();
+        const timeWeek = `${date.getFullYear()}-0${date.getMonth() + 1}-0${date.getDate()}-week`;
+        const timeMonth = `${date.getFullYear()}-0${date.getMonth() + 1}-0${date.getDate()}-month`;
+        this.getDataDashboard('2023-01-05-week');
         this.getDataDashboard('2023-01-04-month');
     }
 
@@ -230,6 +243,7 @@ export class OnboardingComponent implements OnInit {
                     }
                 })
             }
+
             if (this.dataWeek && this.dataMonth) {
                 this.disPatchMonitor(this.dataDaily, this.dataWeek, this.dataMonth);
             }
@@ -249,7 +263,7 @@ export class OnboardingComponent implements OnInit {
 
     getValueMonitor() {
         this.store.select(state => state.informationdata).subscribe(
-            getdata =>  this.valueMonitor = getdata   
+            getdata => this.valueMonitor = getdata
         );
     }
 }
