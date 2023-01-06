@@ -153,7 +153,7 @@ export class OnboardingComponent implements OnInit {
         private store: Store<AppState>,
         private state: State<{}>,
         public restApi: RestApiService
-    ) {}
+    ) { }
 
     ngOnInit() {
         this.api.SubscribeToNewMessageListener().subscribe({
@@ -178,17 +178,17 @@ export class OnboardingComponent implements OnInit {
             month = '' + (d.getMonth() + 1),
             day = '' + d.getDate(),
             year = d.getFullYear();
-    
-        if (month.length < 2) 
+
+        if (month.length < 2)
             month = '0' + month;
-        if (day.length < 2){
-            let preDay = Number(day) - 1;
+        if (day.length < 2) {
+            let preDay = Number(day);
             day = '0' + preDay;
         }
-    
+
         return [year, month, day].join('/');
     }
-     
+
     ngAfterViewInit() {
         let yourDate = new Date();
         // localStorage.setItem("TimeDay", JSON.stringify(yourDate.getDate()));
@@ -199,8 +199,8 @@ export class OnboardingComponent implements OnInit {
         const timeWeek = `${timeDay}/RESULT_WEEK.json`;
         const timeMonth = `${timeDay}/RESULT_MONTH.json`;
         // console.log(timeWeek);
-        // this.getDataDashboard(timeWeek);
-        // this.getDataDashboard('2023/01/04/RESULT_MONTH.json');
+        this.getDataDashboard(timeWeek);
+        this.getDataDashboard(timeMonth);
     }
 
     ngDoCheck() {
@@ -243,19 +243,21 @@ export class OnboardingComponent implements OnInit {
         }
 
         await this.restApi.getDataOnboarding(auth_token, body).subscribe(res => {
-            if (timeData.split('-').slice(-1)[0] === 'week') {
-                res['data'].map(item => {
-                    if (item._id === timeData) {
-                        this.dataWeek = item._source;
-                    }
-                })
+            if (timeData.split('/').slice(-1)[0] === 'RESULT_WEEK.json') {
+                // res['data'].map(item => {
+                //     if (item._id === timeData) {
+                //         this.dataWeek = item._source;
+                //     }
+                // })
+                this.dataWeek = res['data'];
             }
-            if (timeData.split('-').slice(-1)[0] === 'month') {
-                res['data'].map(item => {
-                    if (item._id === timeData) {
-                        this.dataMonth = item._source;
-                    }
-                })
+            if (timeData.split('/').slice(-1)[0] === 'RESULT_MONTH.json') {
+                // res['data'].map(item => {
+                //     if (item._id === timeData) {
+                //         this.dataMonth = item._source;
+                //     }
+                // })
+                this.dataMonth = res['data'];
             }
 
             if (this.dataWeek && this.dataMonth) {
