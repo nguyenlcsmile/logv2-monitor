@@ -154,19 +154,19 @@ export class OnboardingComponent implements OnInit {
         private state: State<{}>,
         public restApi: RestApiService
     ) {
-        const persisted = localStorage.getItem('MONITOR');
-        const timeDay = localStorage.getItem('TimeDay');
+        // const persisted = localStorage.getItem('MONITOR');
+        // const timeDay = localStorage.getItem('TimeDay');
 
-        const timeToday = new Date();
-        const timeDaily = timeToday.getDate();
+        // const timeToday = new Date();
+        // const timeDaily = timeToday.getDate();
 
-        if (persisted && timeDaily === JSON.parse(timeDay)) {
-            this.updateMonitor = JSON.parse(persisted);
-            this.dataDaily = this.updateMonitor.daily;
-            // this.disPatchMonitor(this.updateMonitor.daily, this.updateMonitor.week, this.updateMonitor.month);
-        } else {
-            localStorage.clear();
-        }
+        // if (persisted && timeDaily === JSON.parse(timeDay)) {
+        //     this.updateMonitor = JSON.parse(persisted);
+        //     this.dataDaily = this.updateMonitor.daily;
+        //     // this.disPatchMonitor(this.updateMonitor.daily, this.updateMonitor.week, this.updateMonitor.month);
+        // } else {
+        //     localStorage.clear();
+        // }
     }
 
     ngOnInit() {
@@ -206,7 +206,7 @@ export class OnboardingComponent implements OnInit {
      
     ngAfterViewInit() {
         let yourDate = new Date();
-        localStorage.setItem("TimeDay", JSON.stringify(yourDate.getDate()));
+        // localStorage.setItem("TimeDay", JSON.stringify(yourDate.getDate()));
 
         yourDate.toISOString().split('T')[0]
         let timeDay = this.formatDate(yourDate);
