@@ -14,6 +14,8 @@ import { RestApiService } from 'src/api/rest-api.service';
 export class OnboardingComponent implements OnInit {
     valueMonitor: any;
     updateMonitor: any;
+    color: any = false;
+
     checkCustPhone: any = {
         daily: {
             total: 0,
@@ -163,7 +165,7 @@ export class OnboardingComponent implements OnInit {
                 console.log(">>>Check data recieve:", item);
                 this.getValueMonitor();
                 if (item) {
-                    // console.log(item);
+                    this.color = true;
                     this.dataDaily = item;
                     this.disPatchMonitor(item, this.dataWeek, this.dataMonth);
                     this.updateMonitor = this.valueMonitor.slice(-1)[0];
@@ -233,6 +235,11 @@ export class OnboardingComponent implements OnInit {
             })
         }
         this.getValueMonitor();
+        if (this.color) {
+            setTimeout(() => {
+                this.color = false;
+            }, 2000)
+        }
         // console.log(this.valueMonitor);
     }
 
