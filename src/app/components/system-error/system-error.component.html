@@ -26,21 +26,115 @@
                     <tbody>
                       <tr>
                         <th scope="row" style="padding: 1px;">1</th>
-                        <td style="padding: 1px;">System 1</td>
-                        <td style="padding: 1px;">100</td>
-                        <td style="padding: 1px;">100</td>
+                        <td style="padding: 1px;">BackBase</td>
+                        <td *ngIf="systemBackBase === 0" style="padding: 1px;">0</td>
+                        <td *ngIf="systemBackBase !== 0" style="padding: 1px;">{{systemBackBase}}</td>
+                        <td style="padding: 1px;"></td>
                       </tr>
                       <tr>
-                        <th scope="row" style="padding: 1px;">2</th>
-                        <td style="padding: 1px;">System 2</td>
-                        <td style="padding: 1px;">100</td>
-                        <td style="padding: 1px;">100</td>
+                        <th scope="row" style="padding: 1px;">1</th>
+                        <td style="padding: 1px;">CleverTab</td>
+                        <td *ngIf="systemCleverTab === 0" style="padding: 1px;">0</td>
+                        <td *ngIf="systemCleverTab !== 0" style="padding: 1px;">{{systemCleverTab}}</td>
+                        <td style="padding: 1px;"></td>
                       </tr>
                       <tr>
-                        <th scope="row" style="padding: 1px;">3</th>
-                        <td style="padding: 1px;">System 3</td>
-                        <td style="padding: 1px;">100</td>
-                        <td style="padding: 1px;">100</td>
+                        <th scope="row" style="padding: 1px;">1</th>
+                        <td style="padding: 1px;">ESB</td>
+                        <td *ngIf="systemESB === 0" style="padding: 1px;">0</td>
+                        <td *ngIf="systemESB !== 0" style="padding: 1px;">{{systemESB}}</td>
+                        <td style="padding: 1px;"></td>
+                      </tr>
+                      <tr>
+                        <th scope="row" style="padding: 1px;">1</th>
+                        <td style="padding: 1px;">FPT_EContract</td>
+                        <td *ngIf="systemFPT_EContract === 0" style="padding: 1px;">0</td>
+                        <td *ngIf="systemFPT_EContract !== 0" style="padding: 1px;">{{systemFPT_EContract}}</td>
+                        <td style="padding: 1px;"></td>
+                      </tr>
+                      <tr>
+                        <th scope="row" style="padding: 1px;">1</th>
+                        <td style="padding: 1px;">Finacle</td>
+                        <td *ngIf="systemFinacle === 0" style="padding: 1px;">0</td>
+                        <td *ngIf="systemFinacle !== 0" style="padding: 1px;">{{systemFinacle}}</td>
+                        <td style="padding: 1px;"></td>
+                      </tr>
+                      <tr>
+                        <th scope="row" style="padding: 1px;">1</th>
+                        <td style="padding: 1px;">HyperVerge</td>
+                        <td *ngIf="systemHyperVerge === 0" style="padding: 1px;">0</td>
+                        <td *ngIf="systemHyperVerge !== 0" style="padding: 1px;">{{systemHyperVerge}}</td>
+                        <td style="padding: 1px;"></td>
+                      </tr>
+                      <tr>
+                        <th scope="row" style="padding: 1px;">1</th>
+                        <td style="padding: 1px;">Pega</td>
+                        <td *ngIf="systemPega === 0" style="padding: 1px;">0</td>
+                        <td *ngIf="systemPega !== 0" style="padding: 1px;">{{systemPega}}</td>
+                        <td style="padding: 1px;"></td>
+                      </tr>
+                      <tr>
+                        <th scope="row" style="padding: 1px;">1</th>
+                        <td style="padding: 1px;">PegaCrm</td>
+                        <td *ngIf="systemPegaCrm === 0" style="padding: 1px;">0</td>
+                        <td *ngIf="systemPegaCrm !== 0" style="padding: 1px;">{{systemPegaCrm}}</td>
+                        <td style="padding: 1px;"></td>
+                      </tr>
+                      <tr>
+                        <th scope="row" style="padding: 1px;">1</th>
+                        <td style="padding: 1px;">PegaLos</td>
+                        <td *ngIf="systemPegaLos === 0" style="padding: 1px;">0</td>
+                        <td *ngIf="systemPegaLos !== 0" style="padding: 1px;">{{systemPegaLos}}</td>
+                        <td style="padding: 1px;"></td>
+                      </tr>
+                      <tr>
+                        <th scope="row" style="padding: 1px;">1</th>
+                        <td style="padding: 1px;">Robo</td>
+                        <td *ngIf="systemRobo === 0" style="padding: 1px;">0</td>
+                        <td *ngIf="systemRobo !== 0" style="padding: 1px;">{{systemRobo}}</td>
+                        <td style="padding: 1px;"></td>
+                      </tr>
+                      <tr>
+                        <th scope="row" style="padding: 1px;">1</th>
+                        <td style="padding: 1px;">SmsGateWay</td>
+                        <td *ngIf="systemSmsGateWay === 0" style="padding: 1px;">0</td>
+                        <td *ngIf="systemSmsGateWay !== 0" style="padding: 1px;">{{systemSmsGateWay}}</td>
+                        <td style="padding: 1px;"></td>
+                      </tr>
+                      <tr>
+                        <th scope="row" style="padding: 1px;">1</th>
+                        <td style="padding: 1px;">Taseco</td>
+                        <td *ngIf="systemTaseco === 0" style="padding: 1px;">0</td>
+                        <td *ngIf="systemTaseco !== 0" style="padding: 1px;">{{systemTaseco}}</td>
+                        <td style="padding: 1px;"></td>
+                      </tr>
+                      <tr>
+                        <th scope="row" style="padding: 1px;">1</th>
+                        <td style="padding: 1px;">Tutuka</td>
+                        <td *ngIf="systemTutuka === 0" style="padding: 1px;">0</td>
+                        <td *ngIf="systemTutuka !== 0" style="padding: 1px;">{{systemTutuka}}</td>
+                        <td style="padding: 1px;"></td>
+                      </tr>
+                      <tr>
+                        <th scope="row" style="padding: 1px;">1</th>
+                        <td style="padding: 1px;">Ubit</td>
+                        <td *ngIf="systemUbit === 0" style="padding: 1px;">0</td>
+                        <td *ngIf="systemUbit !== 0" style="padding: 1px;">{{systemUbit}}</td>
+                        <td style="padding: 1px;"></td>
+                      </tr>
+                      <tr>
+                        <th scope="row" style="padding: 1px;">1</th>
+                        <td style="padding: 1px;">VietQR</td>
+                        <td *ngIf="systemVietQR === 0" style="padding: 1px;">0</td>
+                        <td *ngIf="systemVietQR !== 0" style="padding: 1px;">{{systemVietQR}}</td>
+                        <td style="padding: 1px;"></td>
+                      </tr>
+                      <tr>
+                        <th scope="row" style="padding: 1px;">1</th>
+                        <td style="padding: 1px;">Vymo</td>
+                        <td *ngIf="systemVymo === 0" style="padding: 1px;">0</td>
+                        <td *ngIf="systemVymo !== 0" style="padding: 1px;">{{systemVymo}}</td>
+                        <td style="padding: 1px;"></td>
                       </tr>
                     </tbody>
                   </table>

@@ -153,21 +153,7 @@ export class OnboardingComponent implements OnInit {
         private store: Store<AppState>,
         private state: State<{}>,
         public restApi: RestApiService
-    ) {
-        // const persisted = localStorage.getItem('MONITOR');
-        // const timeDay = localStorage.getItem('TimeDay');
-
-        // const timeToday = new Date();
-        // const timeDaily = timeToday.getDate();
-
-        // if (persisted && timeDaily === JSON.parse(timeDay)) {
-        //     this.updateMonitor = JSON.parse(persisted);
-        //     this.dataDaily = this.updateMonitor.daily;
-        //     // this.disPatchMonitor(this.updateMonitor.daily, this.updateMonitor.week, this.updateMonitor.month);
-        // } else {
-        //     localStorage.clear();
-        // }
-    }
+    ) {}
 
     ngOnInit() {
         this.api.SubscribeToNewMessageListener().subscribe({
@@ -182,7 +168,6 @@ export class OnboardingComponent implements OnInit {
                     this.disPatchMonitor(item, this.dataWeek, this.dataMonth);
                     this.updateMonitor = this.valueMonitor.slice(-1)[0];
                     console.log(">>>Check data update:", this.updateMonitor);
-                    // localStorage.setItem("MONITOR", JSON.stringify(this.updateMonitor));
                 }
             }
         })
@@ -201,7 +186,7 @@ export class OnboardingComponent implements OnInit {
             day = '0' + preDay;
         }
     
-        return [year, month, day].join('-');
+        return [year, month, day].join('/');
     }
      
     ngAfterViewInit() {
@@ -211,10 +196,11 @@ export class OnboardingComponent implements OnInit {
         yourDate.toISOString().split('T')[0]
         let timeDay = this.formatDate(yourDate);
 
-        const timeWeek = `${timeDay}-week`;
-        const timeMonth = `${timeDay}-month`;
+        const timeWeek = `${timeDay}/RESULT_WEEK.json`;
+        const timeMonth = `${timeDay}/RESULT_MONTH.json`;
+        // console.log(timeWeek);
         this.getDataDashboard(timeWeek);
-        this.getDataDashboard('2023-01-04-month');
+        this.getDataDashboard('2023/01/04/RESULT_MONTH.json');
     }
 
     ngDoCheck() {
