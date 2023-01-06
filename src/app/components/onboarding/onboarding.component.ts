@@ -4,6 +4,7 @@ import { Store, State } from '@ngrx/store';
 import { AppState } from 'src/store/store.action';
 import { OnBoarding } from 'src/store/information';
 import { RestApiService } from 'src/api/rest-api.service';
+import { CommentStmt } from '@angular/compiler';
 
 @Component({
     selector: 'app-onboarding',
@@ -154,11 +155,17 @@ export class OnboardingComponent implements OnInit {
         public restApi: RestApiService
     ) {
         const persisted = localStorage.getItem('MONITOR');
+        const timeDay = localStorage.getItem('TimeDay');
 
-        if (persisted) {
+        const timeToday = new Date();
+        const timeDaily = timeToday.getDate();
+
+        if (persisted && timeDaily === JSON.parse(timeDay)) {
             this.updateMonitor = JSON.parse(persisted);
             this.dataDaily = this.updateMonitor.daily;
             // this.disPatchMonitor(this.updateMonitor.daily, this.updateMonitor.week, this.updateMonitor.month);
+        } else {
+            localStorage.clear();
         }
     }
 
@@ -174,18 +181,39 @@ export class OnboardingComponent implements OnInit {
                     this.dataDaily = item;
                     this.disPatchMonitor(item, this.dataWeek, this.dataMonth);
                     this.updateMonitor = this.valueMonitor.slice(-1)[0];
-                    console.log(this.updateMonitor);
-                    localStorage.setItem("MONITOR", JSON.stringify(this.updateMonitor));
+                    console.log(">>>Check Update:", this.updateMonitor);
+                    // localStorage.setItem("MONITOR", JSON.stringify(this.updateMonitor));
                 }
             }
         })
     }
 
+    formatDate(date) {
+        let d = new Date(date),
+            month = '' + (d.getMonth() + 1),
+            day = '' + d.getDate(),
+            year = d.getFullYear();
+    
+        if (month.length < 2) 
+            month = '0' + month;
+        if (day.length < 2){
+            let preDay = Number(day) - 1;
+            day = '0' + preDay;
+        }
+    
+        return [year, month, day].join('-');
+    }
+     
     ngAfterViewInit() {
-        const date = new Date();
-        const timeWeek = `${date.getFullYear()}-0${date.getMonth() + 1}-0${date.getDate() - 1}-week`;
-        const timeMonth = `${date.getFullYear()}-0${date.getMonth() + 1}-0${date.getDate() - 1}-month`;
-        this.getDataDashboard('2023-01-04-week');
+        let yourDate = new Date();
+        localStorage.setItem("TimeDay", JSON.stringify(yourDate.getDate()));
+
+        yourDate.toISOString().split('T')[0]
+        let timeDay = this.formatDate(yourDate);
+
+        const timeWeek = `${timeDay}-week`;
+        const timeMonth = `${timeDay}-month`;
+        this.getDataDashboard(timeWeek);
         this.getDataDashboard('2023-01-04-month');
     }
 
