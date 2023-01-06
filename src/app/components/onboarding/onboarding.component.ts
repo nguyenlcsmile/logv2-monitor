@@ -4,7 +4,7 @@ import { Store, State } from '@ngrx/store';
 import { AppState } from 'src/store/store.action';
 import { OnBoarding } from 'src/store/information';
 import { RestApiService } from 'src/api/rest-api.service';
-import { CommentStmt } from '@angular/compiler';
+// import { CommentStmt } from '@angular/compiler';
 
 @Component({
     selector: 'app-onboarding',
