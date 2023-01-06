@@ -23,10 +23,10 @@
                       </tr>
                     </thead>
                     <tbody>
-                      <tr *ngFor="let item of arrSystemErrors; let i = index">
+                      <tr *ngFor="let item of arrSystemErrorsDaily; let i = index">
                         <th scope="row" style="padding: 1px;">{{i+1}}</th>
-                        <td style="padding: 1px;">{{arrSystemErrors[i][0]}}</td>
-                        <td style="padding: 1px;">{{arrSystemErrors[i][1]}}</td>
+                        <td style="padding: 1px;">{{arrSystemErrorsDaily[i].name}}</td>
+                        <td style="padding: 1px;">{{arrSystemErrorsDaily[i].value}}</td>
                       </tr>
                     </tbody>
                   </table>
@@ -54,10 +54,10 @@
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <th scope="row" style="padding: 1px;">1</th>
-                        <td style="padding: 1px;">System 1</td>
-                        <td style="padding: 1px;">100</td>
+                      <tr *ngFor="let item of arrSystemErrorsWeek; let i = index">
+                        <th scope="row" style="padding: 1px;">{{i+1}}</th>
+                        <td style="padding: 1px;">{{arrSystemErrorsWeek[i].name}}</td>
+                        <td style="padding: 1px;">{{arrSystemErrorsWeek[i].value}}</td>
                       </tr>
                     </tbody>
                   </table>
@@ -83,10 +83,10 @@
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <th scope="row" style="padding: 1px;">1</th>
-                        <td style="padding: 1px;">System 1</td>
-                        <td style="padding: 1px;">100</td>
+                      <tr *ngFor="let item of arrSystemErrorsMonth; let i = index">
+                        <th scope="row" style="padding: 1px;">{{i+1}}</th>
+                        <td style="padding: 1px;">{{arrSystemErrorsMonth[i].name}}</td>
+                        <td style="padding: 1px;">{{arrSystemErrorsMonth[i].value}}</td>
                       </tr>
                     </tbody>
                   </table>
