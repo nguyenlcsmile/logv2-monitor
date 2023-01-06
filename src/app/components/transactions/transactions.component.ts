@@ -35,8 +35,7 @@ export class TransactionsComponent implements OnInit {
     private store: Store<AppState>
   ) { }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   ngDoCheck() {
     this.getValueMonitor();
