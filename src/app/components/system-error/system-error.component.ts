@@ -14,22 +14,6 @@ export class SystemErrorComponent implements OnInit {
     dataMonth: any;
     dataDaily: any;
     
-    systemBackBase: any = 0;
-    systemCleverTab: any = 0;
-    systemESB: any = 0;
-    systemFPT_EContract: any = 0;
-    systemFinacle: any = 0;
-    systemHyperVerge: any = 0;
-    systemPega: any = 0;
-    systemPegaCrm: any = 0;
-    systemPegaLos: any = 0;
-    systemRobo: any = 0;
-    systemSmsGateWay: any = 0;
-    systemTaseco: any = 0;
-    systemTutuka: any = 0;
-    systemUbit: any = 0;
-    systemVietQR: any = 0;
-    systemVymo: any = 0;
     arrSystemErrors: any = [];
     nameSystemErrors: any = [];
 

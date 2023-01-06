@@ -50,7 +50,7 @@
           </div>
         </div>
         <div class="u-step col-sm-3 text-center" style="padding: 0px 0px;">
-          <div class="u-step-desc text-center"><span class="u-step-title" style="font-size: 16px;">Daily</span>
+          <div class="u-step-desc text-center"><span class="u-step-title" style="font-size: 16px;">Today</span>
           </div>
           <div class="row">
             <div class="col-sm-12">
@@ -68,45 +68,45 @@
                     <tbody>
                       <tr>
                         <!-- <th scope="row" style="padding: 1px;">Daily</th> -->
-                        <td style="padding: 1px;">{{dataDaily?.issue_card_func?.total}}</td>
-                        <td style="padding: 1px;">{{dataDaily?.issue_card_func?.success}}</td>
-                        <td style="padding: 1px;">{{dataDaily?.issue_card_func?.fail}}</td>
+                        <td style="padding: 1px;">{{dataDaily?.issue_card_func?.total ? dataDaily?.issue_card_func?.total : 0}}</td>
+                        <td style="padding: 1px;">{{dataDaily?.issue_card_func?.success ? dataDaily?.issue_card_func?.success : 0}}</td>
+                        <td style="padding: 1px;">{{dataDaily?.issue_card_func?.fail ? dataDaily?.issue_card_func?.fail : 0}}</td>
                       </tr>
                       <tr>
                         <!-- <th scope="row" style="padding: 1px;">Week</th> -->
-                        <td style="padding: 1px;">{{dataDaily?.create_signature_func?.total}}</td>
-                        <td style="padding: 1px;">{{dataDaily?.create_signature_func?.success}}</td>
-                        <td style="padding: 1px;">{{dataDaily?.create_signature_func?.fail}}</td>
+                        <td style="padding: 1px;">{{dataDaily?.create_signature_func?.total ? dataDaily?.create_signature_func?.total : 0}}</td>
+                        <td style="padding: 1px;">{{dataDaily?.create_signature_func?.success ? dataDaily?.create_signature_func?.success : 0}}</td>
+                        <td style="padding: 1px;">{{dataDaily?.create_signature_func?.fail ? dataDaily?.create_signature_func?.fail : 0}}</td>
                       </tr>
                       <tr>
                         <!-- <th scope="row" style="padding: 1px;">Month</th> -->
-                        <td style="padding: 1px;">{{dataDaily?.request_econtract_func?.total}}</td>
-                        <td style="padding: 1px;">{{dataDaily?.request_econtract_func?.success}}</td>
-                        <td style="padding: 1px;">{{dataDaily?.request_econtract_func?.fail}}</td>
+                        <td style="padding: 1px;">{{dataDaily?.request_econtract_func?.total ? dataDaily?.request_econtract_func?.total : 0}}</td>
+                        <td style="padding: 1px;">{{dataDaily?.request_econtract_func?.success ? dataDaily?.request_econtract_func?.success : 0}}</td>
+                        <td style="padding: 1px;">{{dataDaily?.request_econtract_func?.fail ? dataDaily?.request_econtract_func?.fail : 0}}</td>
                       </tr>
                       <tr>
                         <!-- <th scope="row" style="padding: 1px;">Month</th> -->
-                        <td style="padding: 1px;">{{dataDaily?.request_statement_func?.total}}</td>
-                        <td style="padding: 1px;">{{dataDaily?.request_statement_func?.success}}</td>
-                        <td style="padding: 1px;">{{dataDaily?.request_statement_func?.fail}}</td>
+                        <td style="padding: 1px;">{{dataDaily?.request_statement_func?.total ? dataDaily?.request_statement_func?.total : 0}}</td>
+                        <td style="padding: 1px;">{{dataDaily?.request_statement_func?.success ? dataDaily?.request_statement_func?.success : 0}}</td>
+                        <td style="padding: 1px;">{{dataDaily?.request_statement_func?.fail ? dataDaily?.request_statement_func?.fail : 0}}</td>
                       </tr>
                       <tr>
                         <!-- <th scope="row" style="padding: 1px;">Month</th> -->
-                        <td style="padding: 1px;">{{dataDaily?.cash_withdrawal_func?.total}}</td>
-                        <td style="padding: 1px;">{{dataDaily?.cash_withdrawal_func?.success}}</td>
-                        <td style="padding: 1px;">{{dataDaily?.cash_withdrawal_func?.fail}}</td>
+                        <td style="padding: 1px;">{{dataDaily?.cash_withdrawal_func?.total ? dataDaily?.cash_withdrawal_func?.total : 0}}</td>
+                        <td style="padding: 1px;">{{dataDaily?.cash_withdrawal_func?.success ? dataDaily?.cash_withdrawal_func?.success : 0}}</td>
+                        <td style="padding: 1px;">{{dataDaily?.cash_withdrawal_func?.fail ? dataDaily?.cash_withdrawal_func?.fail : 0}}</td>
                       </tr>
                       <tr>
                         <!-- <th scope="row" style="padding: 1px;">Month</th> -->
-                        <td style="padding: 1px;">{{dataDaily?.open_td_func?.total}}</td>
-                        <td style="padding: 1px;">{{dataDaily?.open_td_func?.success}}</td>
-                        <td style="padding: 1px;">{{dataDaily?.open_td_func?.fail}}</td>
+                        <td style="padding: 1px;">{{dataDaily?.open_td_func?.total ? dataDaily?.open_td_func?.total : 0}}</td>
+                        <td style="padding: 1px;">{{dataDaily?.open_td_func?.success ? dataDaily?.open_td_func?.success : 0}}</td>
+                        <td style="padding: 1px;">{{dataDaily?.open_td_func?.fail ? dataDaily?.open_td_func?.fail : 0}}</td>
                       </tr>
                       <tr>
                         <!-- <th scope="row" style="padding: 1px;">Month</th> -->
-                        <td style="padding: 1px;">{{dataDaily?.closure_td_func?.total}}</td>
-                        <td style="padding: 1px;">{{dataDaily?.closure_td_func?.success}}</td>
-                        <td style="padding: 1px;">{{dataDaily?.closure_td_func?.fail}}</td>
+                        <td style="padding: 1px;">{{dataDaily?.closure_td_func?.total ? dataDaily?.closure_td_func?.total : 0}}</td>
+                        <td style="padding: 1px;">{{dataDaily?.closure_td_func?.success ? dataDaily?.closure_td_func?.success : 0}}</td>
+                        <td style="padding: 1px;">{{dataDaily?.closure_td_func?.fail ? dataDaily?.closure_td_func?.fail : 0}}</td>
                       </tr>
                     </tbody>
                   </table>

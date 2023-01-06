@@ -199,8 +199,8 @@ export class OnboardingComponent implements OnInit {
         const timeWeek = `${timeDay}/RESULT_WEEK.json`;
         const timeMonth = `${timeDay}/RESULT_MONTH.json`;
         // console.log(timeWeek);
-        this.getDataDashboard(timeWeek);
-        this.getDataDashboard('2023/01/04/RESULT_MONTH.json');
+        // this.getDataDashboard(timeWeek);
+        // this.getDataDashboard('2023/01/04/RESULT_MONTH.json');
     }
 
     ngDoCheck() {
