@@ -184,7 +184,7 @@ export class OnboardingComponent implements OnInit {
         if (month.length < 2)
             month = '0' + month;
         if (day.length < 2) {
-            let preDay = Number(day);
+            let preDay = Number(day) - 1;
             day = '0' + preDay;
         }
 
