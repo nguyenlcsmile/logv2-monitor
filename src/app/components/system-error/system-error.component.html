@@ -7,7 +7,7 @@
   <div class="card-body" style="padding: 4px;">
     <div class="row">
       <div class="u-steps row">
-        <div class="u-step col-sm-12 text-center" style="padding: 0px 0px;">
+        <div class="u-step col-sm-4 text-center" style="padding: 0px 0px;">
           <div class="u-step-desc text-center"><span class="u-step-title" style="font-size: 16px;">Today</span>
           </div>
           <div class="row">
@@ -17,16 +17,74 @@
                   <table class="table table-xs">
                     <thead>
                       <tr>
-                        <th scope="col" style="padding: 1px;">#</th>
+                        <!-- <th scope="col" style="padding: 1px;">#</th> -->
                         <th scope="col" style="padding: 1px;">Name</th>
                         <th scope="col" style="padding: 1px;">Total</th>
                       </tr>
                     </thead>
                     <tbody>
-                      <tr *ngFor="let item of arrSystemErrorsDaily; let i = index">
-                        <th scope="row" style="padding: 1px;">{{i+1}}</th>
-                        <td style="padding: 1px;">{{arrSystemErrorsDaily[i].name}}</td>
-                        <td style="padding: 1px;">{{arrSystemErrorsDaily[i].value}}</td>
+                      <tr *ngFor="let item of arrSystemErrorsDailyCopy.slice(0,10); let i = index">
+                        <!-- <th scope="row" style="padding: 1px;">{{i+1}}</th> -->
+                        <td style="padding: 1px;">{{arrSystemErrorsDailyCopy[i].name}}</td>
+                        <td style="padding: 1px;">{{arrSystemErrorsDailyCopy[i].value}}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="u-step col-sm-4 text-center" style="padding: 0px 0px;">
+          <div class="u-step-desc text-center"><span class="u-step-title" style="font-size: 16px;">Week</span>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="card">
+                <div class="table-responsive">
+                  <table class="table table-xs">
+                    <thead>
+                      <tr>
+                        <!-- <th scope="col" style="padding: 1px;">#</th> -->
+                        <th scope="col" style="padding: 1px;">Name</th>
+                        <th scope="col" style="padding: 1px;">Total</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let item of arrSystemErrorsWeekCopy.slice(0,10); let i = index">
+                        <!-- <th scope="row" style="padding: 1px;">{{i+1}}</th> -->
+                        <td style="padding: 1px;">{{arrSystemErrorsWeekCopy[i].name}}</td>
+                        <td style="padding: 1px;">{{arrSystemErrorsWeekCopy[i].value}}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="u-step col-sm-4 text-center" style="padding: 0px 0px;">
+          <div class="u-step-desc text-center"><span class="u-step-title" style="font-size: 16px;">Month</span>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="card">
+                <div class="table-responsive">
+                  <table class="table table-xs">
+                    <thead>
+                      <tr>
+                        <!-- <th scope="col" style="padding: 1px;">#</th> -->
+                        <th scope="col" style="padding: 1px;">Name</th>
+                        <th scope="col" style="padding: 1px;">Total</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let item of arrSystemErrorsMonthCopy.slice(0,10); let i = index">
+                        <!-- <th scope="row" style="padding: 1px;">{{i+1}}</th> -->
+                        <td style="padding: 1px;">{{arrSystemErrorsMonthCopy[i].name}}</td>
+                        <td style="padding: 1px;">{{arrSystemErrorsMonthCopy[i].value}}</td>
                       </tr>
                     </tbody>
                   </table>
@@ -38,8 +96,8 @@
       </div>
 
       <div class="u-steps row">
-        <div class="u-step col-sm-6 text-center" style="padding: 0px 0px;">
-          <div class="u-step-desc text-center"><span class="u-step-title" style="font-size: 16px;">Week</span>
+        <div class="u-step col-sm-12 text-center" style="padding: 0px 0px;">
+          <div class="u-step-desc text-center"><span class="u-step-title" style="font-size: 16px;">Critical Error</span>
           </div>
           <div class="row">
             <div class="col-sm-12">
@@ -48,45 +106,16 @@
                   <table class="table table-xs">
                     <thead>
                       <tr>
-                        <th scope="col" style="padding: 1px;">#</th>
-                        <th scope="col" style="padding: 1px;">Name</th>
-                        <th scope="col" style="padding: 1px;">Total</th>
+                        <!-- <th scope="col" style="padding: 1px;">#</th> -->
+                        <!-- <th scope="col" style="padding: 1px;">Name</th> -->
+                        <!-- <th scope="col" style="padding: 1px;">Event Code</th> -->
                       </tr>
                     </thead>
                     <tbody>
-                      <tr *ngFor="let item of arrSystemErrorsWeek; let i = index">
-                        <th scope="row" style="padding: 1px;">{{i+1}}</th>
-                        <td style="padding: 1px;">{{arrSystemErrorsWeek[i].name}}</td>
-                        <td style="padding: 1px;">{{arrSystemErrorsWeek[i].value}}</td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="u-step col-sm-6 text-center" style="padding: 0px 0px;">
-          <div class="u-step-desc text-center"><span class="u-step-title" style="font-size: 16px;">Month</span>
-          </div>
-          <div class="row">
-            <div class="col-sm-12">
-              <div class="card">
-                <div class="table-responsive">
-                  <table class="table table-xs">
-                    <thead>
-                      <tr>
-                        <th scope="col" style="padding: 1px;">#</th>
-                        <th scope="col" style="padding: 1px;">Name</th>
-                        <th scope="col" style="padding: 1px;">Total</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr *ngFor="let item of arrSystemErrorsMonth; let i = index">
-                        <th scope="row" style="padding: 1px;">{{i+1}}</th>
-                        <td style="padding: 1px;">{{arrSystemErrorsMonth[i].name}}</td>
-                        <td style="padding: 1px;">{{arrSystemErrorsMonth[i].value}}</td>
+                      <tr *ngFor="let item of arrCriticalErrors; let i = index">
+                        <!-- <th scope="row" style="padding: 1px;">{{i+1}}</th> -->
+                        <td style="padding: 1px;">{{arrCriticalErrors[i]}}</td>
+                        <!-- <td style="padding: 1px;">{{arrSystemErrorsMonth[i].value}}</td> -->
                       </tr>
                     </tbody>
                   </table>

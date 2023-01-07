@@ -14,12 +14,218 @@ export class SystemErrorComponent implements OnInit {
     dataMonth: any;
     dataDaily: any;
 
-    arrSystemErrorsDaily: any = [];
-    nameSystemErrorsDaily: any = [];
-    arrSystemErrorsWeek: any = [];
-    nameSystemErrorsWeek: any = [];
-    arrSystemErrorsMonth: any = [];
-    nameSystemErrorsMonth: any = [];
+    nameSystemErrors: any = [
+        'systemBackBase', 'systemPega', 'systemCleverTab', 'systemESB',
+        'systemFPT_EContract', 'systemFinacle', 'systemHyperVerge',
+        'systemPegaCrm', 'systemPegaLos', 'systemRobo', 'systemSmsGateWay',
+        'systemTaseco', 'systemTutuka', 'systemUbit', 'systemVietQR', 'systemVymo'
+    ];
+
+    arrSystemErrorsDaily: any = [
+        {
+            name: 'BackBase',
+            value: 0
+        },
+        {
+            name: 'Pega',
+            value: 0
+        },
+        {
+            name: 'CleverTab',
+            value: 0
+        },
+        {
+            name: 'ESB',
+            value: 0
+        },
+        {
+            name: 'FPT_EContract',
+            value: 0
+        },
+        {
+            name: 'Finacle',
+            value: 0
+        },
+        {
+            name: 'HyperVerge',
+            value: 0
+        },
+        {
+            name: 'PegaCrm',
+            value: 0
+        },
+        {
+            name: 'PegaLos',
+            value: 0
+        },
+        {
+            name: 'Robo',
+            value: 0
+        },
+        {
+            name: 'SmsGateWay',
+            value: 0
+        },
+        {
+            name: 'Taseco',
+            value: 0
+        },
+        {
+            name: 'Tutuka',
+            value: 0
+        },
+        {
+            name: 'Ubit',
+            value: 0
+        },
+        {
+            name: 'VietQR',
+            value: 0
+        },
+        {
+            name: 'Vymo',
+            value: 0
+        }
+    ];
+    arrSystemErrorsDailyCopy: any = [];
+
+    arrSystemErrorsWeek: any = [
+        {
+            name: 'BackBase',
+            value: 0
+        },
+        {
+            name: 'Pega',
+            value: 0
+        },
+        {
+            name: 'CleverTab',
+            value: 0
+        },
+        {
+            name: 'ESB',
+            value: 0
+        },
+        {
+            name: 'FPT_EContract',
+            value: 0
+        },
+        {
+            name: 'Finacle',
+            value: 0
+        },
+        {
+            name: 'HyperVerge',
+            value: 0
+        },
+        {
+            name: 'PegaCrm',
+            value: 0
+        },
+        {
+            name: 'PegaLos',
+            value: 0
+        },
+        {
+            name: 'Robo',
+            value: 0
+        },
+        {
+            name: 'SmsGateWay',
+            value: 0
+        },
+        {
+            name: 'Taseco',
+            value: 0
+        },
+        {
+            name: 'Tutuka',
+            value: 0
+        },
+        {
+            name: 'Ubit',
+            value: 0
+        },
+        {
+            name: 'VietQR',
+            value: 0
+        },
+        {
+            name: 'Vymo',
+            value: 0
+        }
+    ];
+    arrSystemErrorsWeekCopy: any = [];
+
+    arrSystemErrorsMonth: any = [
+        {
+            name: 'BackBase',
+            value: 0
+        },
+        {
+            name: 'Pega',
+            value: 0
+        },
+        {
+            name: 'CleverTab',
+            value: 0
+        },
+        {
+            name: 'ESB',
+            value: 0
+        },
+        {
+            name: 'FPT_EContract',
+            value: 0
+        },
+        {
+            name: 'Finacle',
+            value: 0
+        },
+        {
+            name: 'HyperVerge',
+            value: 0
+        },
+        {
+            name: 'PegaCrm',
+            value: 0
+        },
+        {
+            name: 'PegaLos',
+            value: 0
+        },
+        {
+            name: 'Robo',
+            value: 0
+        },
+        {
+            name: 'SmsGateWay',
+            value: 0
+        },
+        {
+            name: 'Taseco',
+            value: 0
+        },
+        {
+            name: 'Tutuka',
+            value: 0
+        },
+        {
+            name: 'Ubit',
+            value: 0
+        },
+        {
+            name: 'VietQR',
+            value: 0
+        },
+        {
+            name: 'Vymo',
+            value: 0
+        }
+    ];
+    arrSystemErrorsMonthCopy: any = [];
+
+    arrCriticalErrors: any = ['EnvenCode1'];
 
     constructor(private store: Store<AppState>) { }
 
@@ -46,59 +252,51 @@ export class SystemErrorComponent implements OnInit {
                 if (keyName.substring(0, 6) === 'system') this.filterSystemErrorMonth(keyName);
             })
         }
+
+
+        if (this.arrSystemErrorsDaily.length >= 2) {
+            this.arrSystemErrorsDailyCopy = [...this.arrSystemErrorsDaily].sort((a, b) => b.value - a.value);
+        }
+        if (this.arrSystemErrorsWeek.length >= 2) {
+            this.arrSystemErrorsWeekCopy = [...this.arrSystemErrorsWeek].sort((a, b) => b.value - a.value);
+        }
+        if (this.arrSystemErrorsMonth.length >= 2) {
+            this.arrSystemErrorsMonthCopy = [...this.arrSystemErrorsMonth].sort((a, b) => b.value - a.value);
+        }
+
     }
 
 
     filterSystemErrorDaily(name) {
-        if (!this.nameSystemErrorsDaily.includes(name) && this.dataDaily[`${name}`].total_400 !== 0) {
-            this.nameSystemErrorsDaily.push(name);
-            this.arrSystemErrorsDaily.push({
-                name: name.substring(6),
-                value: this.dataDaily[`${name}`].total_400
-            });
-        } else if (this.dataDaily[`${name}`].total_400 !== 0) {
-            let index = this.nameSystemErrorsDaily.indexOf(name);
+        if (this.dataDaily[`${name}`].total_400 !== 0 && this.nameSystemErrors.includes(name)) {
+            let index = this.nameSystemErrors.indexOf(name);
             this.arrSystemErrorsDaily[index] = {
                 name: name.substring(6),
                 value: this.dataDaily[`${name}`].total_400
             };
         }
-        this.arrSystemErrorsDaily.sort((a, b) => b.value - a.value);
     }
 
     filterSystemErrorWeek(name) {
-        if (!this.nameSystemErrorsWeek.includes(name) && this.dataWeek[`${name}`].total_400 !== 0) {
-            this.nameSystemErrorsWeek.push(name);
-            this.arrSystemErrorsWeek.push({
-                name: name.substring(6),
-                value: this.dataWeek[`${name}`].total_400
-            });
-        } else if (this.dataWeek[`${name}`].total_400 !== 0) {
-            let index = this.nameSystemErrorsWeek.indexOf(name);
+        if (this.dataWeek[`${name}`].total_400 !== 0 && this.nameSystemErrors.includes(name)) {
+            let index = this.nameSystemErrors.indexOf(name);
             this.arrSystemErrorsWeek[index] = {
                 name: name.substring(6),
                 value: this.dataWeek[`${name}`].total_400
             };
         }
-        this.arrSystemErrorsWeek.sort((a, b) => b.value - a.value);
         // console.log(">>>Check Week:", this.arrSystemErrorsWeek);
     }
 
     filterSystemErrorMonth(name) {
-        if (!this.nameSystemErrorsMonth.includes(name) && this.dataMonth[`${name}`].total_400 !== 0) {
-            this.nameSystemErrorsMonth.push(name);
-            this.arrSystemErrorsMonth.push({
-                name: name.substring(6),
-                value: this.dataMonth[`${name}`].total_400
-            });
-        } else if (this.dataMonth[`${name}`].total_400 !== 0) {
-            let index = this.nameSystemErrorsMonth.indexOf(name);
+        if (this.dataMonth[`${name}`].total_400 !== 0) {
+            let index = this.nameSystemErrors.indexOf(name);
             this.arrSystemErrorsMonth[index] = {
                 name: name.substring(6),
                 value: this.dataMonth[`${name}`].total_400
             };
         }
-        this.arrSystemErrorsMonth.sort((a, b) => b.value - a.value);
+        // if (this.arrSystemErrorsMonth.length >= 2) this.arrSystemErrorsMonth.sort((a, b) => b.value - a.value);
     }
 
     getValueFunctionals(data) {
